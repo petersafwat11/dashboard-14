@@ -1,6 +1,6 @@
 import React from "react";
-import ForgetPassword from "../../../../components/forget-password/forgetPassword";
 import classes from "./page.module.css";
+import ForgetPassword from "@/app/ui/forget-password/forgetPassword";
 const page = () => {
   return (
     <div className={classes["container"]}>

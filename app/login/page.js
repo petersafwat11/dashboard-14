@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import LoginForm from "../../../components/loginForm/LoginForm";
 import classes from "./login.module.css";
+import LoginForm from "../ui/loginForm/LoginForm";
 
 const Login = async() => {
   

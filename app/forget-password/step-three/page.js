@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import MakeNewPassword from "../../../../components/MakeNewPassword/MakeNewPassword";
 import classes from "./page.module.css";
+import MakeNewPassword from "@/app/ui/MakeNewPassword/MakeNewPassword";
 const page = () => {
   return (
     <div className={classes["login"]}>
