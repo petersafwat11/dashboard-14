@@ -1,0 +1,49 @@
+.container {
+  width: 29.48rem;
+  height: 27.5rem;
+  background: #0d1317;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.825rem;
+  padding: 1.43rem 1.76rem 1.43rem 2.1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.add,
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.825rem 1.375rem;
+  gap: 0.55rem;
+
+  width: 3.74rem;
+  height: 1.54rem;
+  background: #4f4f4f;
+  border-radius: 0.275rem;
+  cursor: pointer;
+  color: white;
+}
+.title {
+  font-family: "Public Sans";
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+}
+.poll-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 3.1rem;
+}
+

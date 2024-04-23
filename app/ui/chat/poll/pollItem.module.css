@@ -1,0 +1,86 @@
+.poll-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .custom-checkbox {
+    position: relative;
+    padding-left: 30px; /* Adjust as needed based on your design */
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -1.3rem;
+  }
+  
+  /* Hide the default checkbox */
+  .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Style for the custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px; /* Adjust as needed based on your design */
+    width: 20px; /* Adjust as needed based on your design */
+    background-color: inherit; /* Background color */
+    border-radius: 5px; /* Border radius */
+    border: 1px solid rgba(181, 181, 181, 1);
+  }
+  
+  /* Style for the checkmark when the checkbox is checked */
+  .custom-checkbox input:checked + .checkmark {
+    background-color: #4f4f4f; /* Change background color when checked */
+  }
+  
+  /* Hide the default checkmark */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when the checkbox is checked */
+  .custom-checkbox input:checked + .checkmark:after {
+    display: block;
+  }
+  
+  /* Style for the checkmark icon */
+  .custom-checkbox .checkmark:after {
+    left: 7px; /* Adjust as needed based on your design */
+    top: 3px; /* Adjust as needed based on your design */
+    width: 5px; /* Adjust as needed based on your design */
+    height: 10px; /* Adjust as needed based on your design */
+    border: solid white; /* Checkmark color */
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  .question-name {
+    width: 19.96rem;
+    height: 2.36rem;
+    border-radius: 0.33rem;
+    background: #292929;
+    display: flex;
+    align-items: center;
+    padding: 0 1.21rem;
+    color: #fff;
+    font-family: "Public Sans";
+    font-size: 0.88rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.155rem; /* 131.25% */
+  }
+  .text {
+    width: 3.13rem;
+    color: #747474;
+  
+    text-align: center;
+    font-family: "Public Sans";
+    font-size: 0.66rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 0.77rem; /* 116.667% */
+  }
+  

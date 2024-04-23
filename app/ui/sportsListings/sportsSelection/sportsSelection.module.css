@@ -1,0 +1,46 @@
+.selection {
+  position: relative;
+  z-index: 10;
+}
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.66rem;
+  border: 1px solid #000000;
+  width: 12.58rem;
+  color: #343434;
+  font-size: 0.81rem;
+  line-height: 1.1rem;
+  cursor: pointer;
+}
+.arrow {
+  font-size: 1.1rem;
+  color: #0832de;
+}
+.options {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.22rem;
+  border: 1px solid black;
+  width: 12.58rem;
+  margin-top: 0.22rem;
+  position: absolute;
+  top: 2.29rem;
+  left: 0;
+  z-index: 10;
+  background: #d6dce4;
+}
+.option {
+  font-size: 0.81rem;
+  line-height: 1.1rem;
+  cursor: pointer;
+  color: #343434;
+  width: 100%;
+  padding: 0.22rem;
+}
+.option:hover {
+  background: gray;
+  color: white;
+}

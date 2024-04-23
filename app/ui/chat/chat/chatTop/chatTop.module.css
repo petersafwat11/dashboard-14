@@ -1,0 +1,100 @@
+.chat-top {
+  background-color: #03a1cd;
+  height: 1.875rem;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-top-text {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: "Roboto Condensed";
+  font-weight: 600;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: normal;
+  position: relative;
+  width: 7.875rem;
+  padding: 3px;
+  border-top-right-radius: 4.5px;
+  border-top-left-radius: 4.5px;
+}
+
+.chat-top-text:hover {
+  background: #04627c;
+
+  /* color: rgba(255, 255, 255, 0.4); */
+}
+.chat-top-text:hover > .chat-rooms {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 3px;
+}
+.chat-top-text > img {
+  transition: all 0.25s ease-out;
+}
+.chat-top-text:hover > img {
+  rotate: -180deg;
+}
+.chat-rooms {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /* margin-left: -3.97rem; */
+  background: #04627c;
+
+  width: 7.875rem;
+  z-index: 10;
+  border-radius: 4.5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  overflow: hidden;
+  padding: 8px 4px 4px;
+}
+.space-2 {
+  position: absolute;
+  top: 6.55rem;
+  left: 0;
+  width: 100%;
+  height: 0.4rem;
+  background: #04627c;
+
+  z-index: 10;
+}
+.chat-room,
+.arabic {
+  width: 100%;
+  height: 1.78rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.65rem;
+  color: #fff;
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+  font-size: 0.73rem;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.arabic {
+  font-family: "Noto Sans Arabic";
+}
+.chat-room:hover,
+.arabic:hover {
+  background: #174351 !important;
+}
+.chat-top-extend,
+.chat-top-exit {
+  cursor: pointer;
+}

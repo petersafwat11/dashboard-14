@@ -1,0 +1,77 @@
+.sport-category {
+  width: 13.86rem;
+  background: white;
+  border-radius: 13.2px;
+  padding: 1.21rem 1.49rem 1.43rem 1.7rem;
+  height: 100%;
+}
+
+.title {
+  font-family: "Public Sans";
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #000000;
+}
+.categories::-webkit-scrollbar {
+  width: 4.5px;
+}
+
+/* Track */
+.categories::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+.categories::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 0.6);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.categories::-webkit-scrollbar-thumb:hover {
+  background: #515151;
+}
+
+.categories {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.43rem;
+  margin-top: 1.144rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 11.4rem;
+  width: 100%;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Public Sans";
+  font-weight: 500;
+  font-size: 0.88rem;
+  line-height: 1.1rem;
+  color: #000000;
+  width: 100%;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.category p {
+  font-family: "Public Sans";
+}
+
+.not-checked,
+.checked {
+  width: 8.8px;
+  height: 8.8px;
+  background: #c0c0c0;
+}
+.checked {
+  background: #007BFF;
+  outline: 2px solid #007BFF;
+  outline-offset: 3px;
+}

@@ -1,0 +1,41 @@
+.container {
+  background: #f2f3f5;
+  padding: 6.6rem 1.1rem 10.56rem 10.56rem;
+}
+
+.title {
+  color: #000000;
+  font-size: 1.98rem;
+  line-height: 1.32rem;
+  font-weight: 616;
+  font-family: "Public Sans";
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 9.24rem;
+  margin-bottom: 2.64rem;
+}
+
+.details {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.76rem;
+}
+
+.first,
+.second {
+  display: flex;
+  align-items: center;
+  gap: 1.6964rem;
+}
+
+.details-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20.24px;
+}

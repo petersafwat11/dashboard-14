@@ -1,0 +1,28 @@
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 13.64rem;
+  margin-bottom: 0.44rem;
+  margin-top: 0.26rem;
+}
+.label {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  letter-spacing: 1%;
+  color: rgba(50, 60, 71, 0.6);
+  margin-bottom: 0.99rem;
+}
+
+.details {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.99rem;
+  flex-direction: column;
+}
+.details-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.7rem;
+}

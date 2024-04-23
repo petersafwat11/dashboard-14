@@ -1,0 +1,219 @@
+.container {
+  width: 34.32rem;
+  height: 13.475rem;
+  border-radius: 0.825rem;
+  background: #0d1317;
+  padding: 1.65rem 2.2rem;
+}
+.title {
+  color: #e1e1e1;
+  font-family: "Public Sans";
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.32rem; /* 120% */
+  margin-bottom: 0.75rem;
+}
+.first,
+.second {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.first {
+  margin-top: 7px;
+  gap: 0.7rem;
+}
+.settings {
+  display: flex;
+  align-items: flex-start;
+}
+.toggle-slow-mode {
+  display: flex;
+  align-items: center;
+  gap: 0.88rem;
+}
+.toggle-slow-mode p {
+  color: hsl(0, 0%, 85%);
+  font-family: "Inter";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1rem; /* 142.857% */
+}
+.toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 14.08px;
+  width: 42px;
+  height: 22px;
+  position: relative;
+  vertical-align: middle;
+  transition: all 0.22s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.88px rgba(0, 0, 0, 0.22);
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 3.1px;
+  left: 3.52px;
+  transition: left 0.22s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.44);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: #4c34c2;
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 22px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.input {
+  display: flex;
+  width: 9.4rem;
+  height: 1.815rem;
+  padding: 0.55rem;
+  align-items: center;
+  gap: 0.33rem;
+  border-radius: 0.22rem;
+  background: #fff;
+  color: #424242;
+  font-family: "Inter";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1rem; /* 181.818% */
+}
+.save-button {
+  display: flex;
+  width: 4.95rem;
+  height: 1.54rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 0.28rem;
+  background: #0065c2;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.1rem; /* 181.818% */
+  cursor: pointer;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.94rem;
+  gap: 0.66rem;
+}
+.sub-title {
+  color: #d9d9d9;
+  font-family: "Inter";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1rem; /* 142.857% */
+}
+.option-group {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+.label {
+  color: #d0d0d0;
+  font-family: "Inter";
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1rem; /* 166.667% */
+}
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px; /* Adjust as needed based on your design */
+  cursor: pointer;
+  display: inline-block;
+  margin-top: -1.3rem;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Style for the custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.1rem; /* Adjust as needed based on your design */
+  width: 1.1rem; /* Adjust as needed based on your design */
+  background-color: rgba(255, 255, 255, 1); /* Background color */
+  border-radius: 0.25rem; /* Border radius */
+}
+
+/* Style for the checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark {
+  background-color: rgba(
+    194,
+    194,
+    194,
+    1
+  ); /* Change background color when checked */
+}
+
+/* Hide the default checkmark */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark:after {
+  display: block;
+}
+
+/* Style for the checkmark icon */
+.custom-checkbox .checkmark:after {
+  left: 7px; /* Adjust as needed based on your design */
+  top: 3px; /* Adjust as needed based on your design */
+  width: 5px; /* Adjust as needed based on your design */
+  height: 10px; /* Adjust as needed based on your design */
+  border: solid white; /* Checkmark color */
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}

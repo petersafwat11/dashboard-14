@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-left: auto;
+  margin-right: 7%;
+  height: 3.3rem;
+}
+.container * {
+  color: #787878;
+}
+.rows-num,
+.results-num,
+.option {
+  color: #787878;
+  font-family: "Inter";
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+.controllers {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 1.3rem;
+}
+.controllers * {
+  cursor: pointer;
+}
+
+.rows-num {
+  margin-right: 2.5rem;
+}
+.results-num {
+  margin-left: 3rem;
+}
+.arrow-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+.arrow-wrapper:hover .rows-options {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.arrow-down {
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.devider {
+  display: block;
+  width: 100%;
+  height: 1.5rem;
+  background-color: transparent;
+}
+.rows-options {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 4rem;
+
+  left: -1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1.5rem;
+  color: white;
+  background: rgb(48, 55, 76);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.option:hover {
+  background: #798098;
+  color: rgba(0, 0, 0, 0.6);
+}

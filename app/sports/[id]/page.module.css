@@ -1,0 +1,50 @@
+.create-listing {
+  background: #f2f3f5;
+  padding: 6.072rem 5.5rem 10.56rem 7.92rem;
+}
+
+.title {
+  color: #000000;
+  font-size: 1.98rem;
+  line-height: 1.32rem;
+  font-weight: 700;
+  font-family: "Public Sans";
+  margin-bottom: 0.7216rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 12.1rem;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  letter-spacing: 0.88%;
+  color: rgba(50, 60, 71, 0.6);
+  margin-bottom: 0.99rem;
+}
+
+.first,
+.second {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: max-content;
+  gap: 18.48px;
+}
+.second {
+  margin-top: 3.52rem;
+}
+.servers-and-langs {
+  margin-top: 3.85rem;
+}
+.third {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}

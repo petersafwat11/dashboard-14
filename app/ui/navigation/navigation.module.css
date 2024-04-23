@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 3rem;
+  position: absolute;
+  top: 8.8px;
+  left: 0;
+  width: 5.192rem;
+  padding: 2.0864rem 0 2.024rem;
+  background: white;
+  border-radius: 1.1rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.nav > * {
+  color: gray;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav > *:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.logo-wrapper {
+  width: 2.31rem;
+  height: 2.31rem;
+  border-radius: 50%;
+  background-color: #0d111a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

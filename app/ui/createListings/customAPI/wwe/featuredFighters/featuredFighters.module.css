@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  width: 50%;
+}
+
+.toggler {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 14.08px;
+  width: 51.04px;
+  height: 28.16px;
+  position: relative;
+  vertical-align: middle;
+  transition: all 0.22s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.88px rgba(0, 0, 0, 0.22);
+  width: 21.12px;
+  height: 21.12px;
+  position: absolute;
+  top: 3.52px;
+  left: 3.52px;
+  transition: left 0.22s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.44);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: #4c34c2;
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 26.4px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  color: #000;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.32rem;
+  font-weight: 700;
+}
+.players-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid gray;
+  padding-top: 0.5rem;
+  width: 100%;
+  grid-row-gap: 1.5rem;
+}
+.player-data:nth-child(even) {
+  justify-self: flex-end;
+}
+.player-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.88rem;
+}
+.label {
+  color: #000;
+  font-family: "Public Sans";
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.age-input,
+.name-input {
+  display: flex;
+  width: 8rem;
+  padding: 0.55rem 1rem;
+  align-items: center;
+  border-radius: 0.44rem;
+  border: 1px solid #d0d0d0;
+  background: rgba(123, 151, 206, 0.06);
+  color: #000;
+  font-family: "Public Sans";
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.name-input {
+  width: 12rem;
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  /* margin-top: 4.07rem; */
+}
+
+.action-buttons button {
+  display: flex;
+  width: 9.13rem;
+  height: 1.98rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+}
+.add-button {
+  background: #4340da;
+}
+.remove-button {
+  background: #da4040;
+}

@@ -1,0 +1,115 @@
+.table {
+  border-radius: 12.32px;
+  box-shadow: 0px 3.52px rgba(0, 0, 0, 0.22);
+  background: white;
+  padding-top: 1.1rem;
+  box-shadow: 0px 0px 7.04px 3.52px rgba(0, 0, 0, 0.22);
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  gap: 1.936rem;
+  margin: 1.1rem 1.54rem 1.1rem 2.31rem;
+}
+
+.search {
+  width: 100%;
+  height: 2.75rem;
+  border-radius: 1.98rem;
+  padding: 0.88rem;
+  padding-left: 4.22rem;
+  background: #f0f0f0;
+  color: #2a3042;
+  font-size: 0.66rem;
+  line-height: 0.77rem;
+  font-weight: 400;
+  font-family: "Inter";
+}
+
+.search-icon {
+  color: #2a3042;
+  font-size: 1.32rem;
+  position: absolute;
+  top: 10.56px;
+  left: 14.08px;
+}
+
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #da4040;
+  width: 5.82rem;
+  height: 1.82rem;
+  border-radius: 0.44rem;
+  font-weight: 500;
+  font-size: 0.82rem;
+  line-height: 0.9856rem;
+  letter-spacing: 0.132px;
+  cursor: pointer;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1.76rem 10.56rem 3.52fr 2.64fr 1.32fr 0.88fr;
+  justify-items: start;
+  align-items: center;
+  padding: 1.32rem 2.2rem 1.32rem 1.76rem;
+}
+
+.table-header .table-cell:last-of-type {
+  margin-right: 1.452rem;
+  justify-self: end;
+}
+
+.table-header {
+  background-color: #2a3042;
+  color: white;
+}
+
+.table-cell {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 0.9344rem;
+  line-height: 1.408rem;
+}
+
+.table-header .table-cell {
+  font-weight: 600;
+}
+
+.table-cell:first-of-type {
+  justify-self: center;
+}
+
+.table-row {
+  color: #575757;
+  height: 3.74rem;
+  padding: 0 2.2rem 0 1.76rem;
+  border-bottom: 1px solid #e1e0e2;
+}
+
+.square {
+  width: 19.36px;
+  height: 17.6px;
+  border-radius: 3.52px;
+  border: 1px solid #0832de;
+  justify-self: start;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.984rem;
+  height: 1.808rem;
+  border-radius: 1.92rem;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  justify-self: center;
+}

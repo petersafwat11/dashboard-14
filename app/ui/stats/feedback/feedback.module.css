@@ -1,0 +1,76 @@
+.container {
+  width: 17.6rem;
+  padding: 1.48rem 1.6rem 3.25rem;
+  background: white;
+  height: 19.6rem;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  /* H2 */
+  font-family: "DM Sans";
+  font-size: 1.21rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.options {
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.description,
+.name {
+  color: rgb(0, 0, 0);
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.description {
+  margin-top: 0.65rem;
+}
+.time-ranges {
+  display: flex;
+  flex-direction: column;
+  gap: 1.85rem;
+  margin-top: 0.95rem;
+  width: 100%;
+}
+.time-range {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  cursor: pointer;
+}
+.quantity {
+  color: #c2c2c2;
+  text-align: right;
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 0.45rem;
+  background-color: rgba(239, 239, 239, 1);
+
+  border-radius: 0.5rem;
+}
+.progress-bar span {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 0.5rem;
+}

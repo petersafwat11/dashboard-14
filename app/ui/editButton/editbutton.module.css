@@ -1,0 +1,12 @@
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.984rem;
+  height: 1.808rem;
+  border-radius: 1.92rem;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  justify-self: center;
+}

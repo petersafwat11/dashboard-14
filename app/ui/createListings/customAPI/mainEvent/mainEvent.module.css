@@ -1,0 +1,129 @@
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.toggler {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 14.08px;
+  width: 51.04px;
+  height: 28.16px;
+  position: relative;
+  vertical-align: middle;
+  transition: all 0.22s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.88px rgba(0, 0, 0, 0.22);
+  width: 21.12px;
+  height: 21.12px;
+  position: absolute;
+  top: 3.52px;
+  left: 3.52px;
+  transition: left 0.22s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.44);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: #4c34c2;
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 26.4px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.32rem;
+  font-weight: 700;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6.6rem;
+  gap: 0.77rem;
+  width: 80%;
+}
+.header,
+.data-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.data-item {
+  margin: 0 3rem;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.485rem;
+}
+.name-input {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  width: 8rem;
+  color: #8c8c8c;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.32rem;
+  font-weight: 700;
+  width: 11.22rem;
+  padding: 0.9rem;
+  border-radius: 0.44rem;
+  border: 1px solid #dbdbdb;
+  background: rgba(123, 151, 206, 0.06);
+}
+
+.num-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.85rem;
+  height: 2.64rem;
+  padding: 0 0.9rem;
+  border-radius: 0.44rem;
+  border: 1px solid #dbdbdb;
+  background: rgba(123, 151, 206, 0.06);
+  color: #afafaf;
+  font-family: "Roboto";
+  font-size: 1.21rem;
+  font-weight: 400;
+}

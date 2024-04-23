@@ -1,0 +1,22 @@
+.container {
+  background: #ffffff;
+  border-radius: 13.2px;
+  width: 29.48rem;
+  height: 20.59rem;
+  padding: 1.21rem 1.54rem 3.08rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #000000;
+  font-family: "Public Sans";
+}
+.preview {
+  background: rgba(12, 17, 21, 0.99);
+  border-radius: 4.4px;
+  width: 404.12px;
+  height: 207.68px;
+  margin: 1.81rem 0.55rem 0;
+}

@@ -1,0 +1,7 @@
+.container {
+  width: 81.6rem;
+  border-radius: 0.8rem;
+  background: #121212;
+  padding: 6.6rem 2.75rem 8.8rem;
+  display: flex;
+}

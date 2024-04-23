@@ -1,0 +1,155 @@
+.chat-body {
+  flex-grow: 1;
+  width: 100%;
+  padding: 1.78rem 0 1.26rem;
+  max-height: 422px;
+  min-height: 350px;
+}
+.messages::-webkit-scrollbar {
+  width: 4.5px;
+}
+
+/* Track */
+.messages::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+.messages::-webkit-scrollbar-thumb {
+  background: #060c11;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.messages::-webkit-scrollbar-thumb:hover {
+  background: #515151;
+}
+
+.messages {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.52rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.98rem;
+  width: 100%;
+  padding: 0.28rem 1.875rem 0.28rem 1.4rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.message:hover {
+  background: #1c2730;
+}
+.user-image {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  align-items: center;
+}
+.you-text {
+  color: #03a1cd;
+  text-align: center;
+  font-family: "Poppins";
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: normal;
+}
+/* .message-data {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.28rem;
+} */
+.message-data {
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.username {
+  color: #bf43aa;
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: normal;
+  margin-right: 3px;
+}
+.mentioned {
+  display: inline-block;
+}
+.mentioned * {
+  color: #e4e900;
+  font-family: "Poppins";
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: normal;
+  margin-right: 3px;
+}
+
+.replay-wrapper {
+  display: none;
+}
+.message:hover .replay-wrapper {
+  display: flex;
+  position: absolute;
+  top: -0.75rem;
+  right: 1.65rem;
+  cursor: pointer;
+}
+.replay-icon-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.68rem;
+  height: 1.68rem;
+  background-color: #0f151b;
+  border-radius: 0.24rem;
+}
+
+.tooltip {
+  display: none;
+}
+.replay-icon-div:hover ~ .tooltip {
+  display: inline;
+  position: absolute;
+  top: -1.8rem;
+  left: -1.8rem;
+  z-index: 10;
+  color: #fff;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  font-size: 0.63rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0; /* 177.778% */
+  letter-spacing: 0.5px;
+  width: 5.2rem;
+  height: 1.4rem;
+  border-radius: 0.28rem;
+  background: #2b3134;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #2b3134 transparent transparent transparent;
+}

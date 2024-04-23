@@ -1,0 +1,112 @@
+.container {
+  width: 17.6rem;
+  padding: 1.48rem 1.6rem 3.25rem;
+  background: white;
+  height: 19.6rem;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  /* H2 */
+  font-family: "DM Sans";
+  font-size: 1.21rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.options {
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.description,
+.name {
+  color: rgb(0, 0, 0);
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.description {
+  margin-top: 0.7rem;
+}
+.sports {
+  display: flex;
+  flex-direction: column;
+  gap: 0.99rem;
+  margin-top: 0.95rem;
+  width: 100%;
+}
+.sport-1 .quantity {
+  color: #ffb200;
+}
+.sport-1 .progress-bar {
+  background: rgba(255, 245, 204, 1);
+}
+.sport-1 .progress-bar span {
+  background: rgba(255, 178, 0, 1);
+}
+.sport-2 .quantity {
+  color: #4339f2;
+}
+.sport-2 .progress-bar {
+  background: rgba(218, 215, 254, 1);
+}
+.sport-2 .progress-bar span {
+  background: rgba(67, 57, 242, 1);
+}
+.sport-3 .quantity {
+  color: #02a0fc;
+}
+.sport-3 .progress-bar {
+  background: rgba(204, 248, 254, 1);
+}
+.sport-3 .progress-bar span {
+  background: rgba(2, 160, 252, 1);
+}
+.sport-4 .quantity {
+  color: #ff3a29;
+}
+.sport-4 .progress-bar {
+  background: rgba(254, 204, 204, 1);
+}
+.sport-4 .progress-bar span {
+  background: rgba(255, 58, 41, 1);
+}
+.sports > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  cursor: pointer;
+}
+.quantity {
+  color: #c2c2c2;
+  text-align: right;
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 0.45rem;
+  background-color: rgba(239, 239, 239, 1);
+
+  border-radius: 0.5rem;
+}
+.progress-bar span {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 0.5rem;
+}

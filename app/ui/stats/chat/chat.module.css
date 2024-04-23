@@ -1,0 +1,87 @@
+.container {
+  width: 17.6rem;
+  padding: 1.48rem 1.6rem 3.25rem;
+  background: white;
+  height: 19.6rem;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  /* H2 */
+  font-family: "DM Sans";
+  font-size: 1.21rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.options {
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.active-users {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.active-users-para,
+.active-users-num {
+  color: rgba(0, 0, 0, 0.6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-weight: 400;
+}
+.active-users-num {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+.chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.langs {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.langs > div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.english > span,
+.french > span,
+.arabic > span,
+.spanish > span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(67, 57, 242, 1);
+}
+.arabic > span {
+  background: rgba(255, 178, 0, 1);
+}
+.spanish > span {
+  background: rgba(255, 58, 41, 1);
+}
+.french > span {
+  background: rgba(41, 255, 50, 1);
+}
+.lang-name {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 0.65rem;
+  font-style: normal;
+  font-weight: 400;
+}

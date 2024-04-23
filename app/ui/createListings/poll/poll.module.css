@@ -1,0 +1,125 @@
+.container {
+  background: #ffffff;
+  border-radius: 13.2px;
+  width: 14.696rem;
+  padding: 1.32rem 1.43rem 1.87rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 0.88rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #000000;
+  font-family: "Public Sans";
+}
+
+.toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 14.08px;
+  width: 51.04px;
+  height: 28.16px;
+  position: relative;
+  vertical-align: middle;
+  transition: all 0.22s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.88px rgba(0, 0, 0, 0.22);
+  width: 21.12px;
+  height: 21.12px;
+  position: absolute;
+  top: 3.52px;
+  left: 3.52px;
+  transition: left 0.22s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.44);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: #4c34c2;
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 26.4px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  color: #484848;
+  font-size: 0.77rem;
+  font-weight: 400;
+  line-height: 1.1rem;
+  font-family: "Inter";
+  margin-left: 7.04px;
+}
+
+.details {
+  margin-top: 1.98rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 18.48px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.99rem;
+  width: 100%;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.66rem;
+  line-height: 0.88rem;
+  font-family: "Public Sans";
+  color: #909090;
+}
+
+.input {
+  background-color: rgba(123, 151, 206, 0.06);
+  height: 2.64rem;
+  width: 100%;
+  border-radius: 0.44rem;
+  padding: 0.77rem 0.88rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+  line-height: 1.144rem;
+  font-family: "Public Sans";
+  border: 1px solid #d0d0d0;
+}

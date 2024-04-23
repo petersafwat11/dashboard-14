@@ -1,0 +1,27 @@
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 12.1rem;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  letter-spacing: 0.88%;
+  color: rgba(50, 60, 71, 0.6);
+  margin-bottom: 0.99rem;
+}
+
+.first,
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: max-content;
+  gap: 18.48px;
+}
+.servers-and-langs {
+  padding-top: 3.85rem;
+}

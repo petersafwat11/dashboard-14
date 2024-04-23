@@ -1,0 +1,75 @@
+.table {
+  border-radius: 12.32px;
+  background: white;
+  padding-top: 1.1rem;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 1.625rem;
+}
+.search-wrapper {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  margin: 1.25rem 2.9rem 1.25rem 0.66rem;
+}
+.search {
+  width: 100%;
+  height: 2.75rem;
+  border-radius: 1.98rem;
+  padding: 0.88rem;
+  padding-left: 4.8rem;
+  background: #f0f0f0;
+  color: #2a3042;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  font-weight: 400;
+  font-family: "Inter";
+}
+.search-icon {
+  color: #2a3042;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 8.8rem 1fr 11.44rem 11.44rem;
+  justify-items: start;
+  align-items: center;
+  padding: 1.5rem 2rem 1.5rem 3.5rem;
+}
+.table-header {
+  background-color: #2a3042;
+  color: white;
+}
+.table-cell,
+.date-and-time {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 0.94rem;
+  line-height: 1.6rem;
+}
+.table-cell:nth-child(2) {
+  margin-right: 2rem;
+}
+.table-cell:first-of-type {
+  font-size: 0.93rem;
+  line-height: 1.125rem;
+}
+.table-header .table-cell {
+  font-weight: 600;
+}
+.table-row {
+  color: #575757;
+  height: auto;
+  padding: 1.25rem 2rem 1.25rem 3.5rem;
+  border-bottom: 1px solid #e1e0e2;
+}
+.date-and-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+}

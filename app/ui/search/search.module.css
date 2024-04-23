@@ -1,0 +1,26 @@
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  height: 2.75rem;
+  border-radius: 1.98rem;
+  padding: 0.88rem;
+  padding-left: 4.224rem;
+  background: #f0f0f0;
+  color: #2a3042;
+  font-size: 0.66rem;
+  line-height: 0.77rem;
+  font-weight: 400;
+  font-family: "Inter";
+}
+
+.search-icon {
+  color: #2a3042;
+  font-size: 1.32rem;
+  position: absolute;
+  top: 10.56px;
+  left: 14.08px;
+}

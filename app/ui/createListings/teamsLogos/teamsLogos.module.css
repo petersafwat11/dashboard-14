@@ -1,0 +1,53 @@
+.container {
+  background: #ffffff;
+  border-radius: 13.75px;
+  width: 13.73rem;
+  padding: 1.21rem 1.76rem 1.32rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #000000;
+  font-family: "Public Sans";
+}
+
+.details {
+  margin-top: 0.66rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.44rem;
+  width: 100%;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 0.66rem;
+  line-height: 0.88rem;
+  font-family: "Public Sans";
+  color: #3d3d3d;
+}
+
+.upload {
+  border: 1px solid #c2c2c2;
+  border-radius: 44px;
+  padding: 1.76px 7.04px;
+  background: #f5f5f5;
+  color: #5f5f5f;
+  font-weight: 500;
+  font-size: 0.66rem;
+  line-height: 0.88rem;
+  font-family: "Inter";
+  cursor: pointer;
+}

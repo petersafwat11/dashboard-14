@@ -1,0 +1,50 @@
+.container {
+  background: #222125;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: 25rem;
+}
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: "Poppins";
+}
+.input {
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  font-size: 0.9rem;
+  color: gray;
+  border-radius: 0.3rem;
+  background: white;
+}
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 500;
+  width: 70px;
+  cursor: pointer;
+}
+.confirm {
+  background-color: rgb(39 42 214 / 76%);
+}
+.cancel {
+  background-color: rgb(252 12 72 / 47%);
+}

@@ -1,0 +1,16 @@
+.sign-out {
+  background: #3361ff;
+  color: white;
+  width: 3.784rem;
+  height: 1.54rem;
+  border-radius: 4.4px;
+  font-size: 0.55rem;
+  line-height: 1.1rem;
+  font-weight: 700;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  position: absolute;
+  top: 2.42rem;
+  right: 7.392rem;
+  cursor: pointer;
+}

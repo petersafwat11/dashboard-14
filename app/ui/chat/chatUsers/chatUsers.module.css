@@ -1,0 +1,106 @@
+.container {
+  width: 29.48rem;
+  height: 33.58rem;
+  background: #0d1317;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.825rem;
+  padding: 1.43rem 1.7rem 1.66rem;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+.members {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+.members > * {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.825rem;
+  color: #535353;
+  cursor: pointer;
+  padding-bottom: 4.4px;
+  border-bottom: 1px solid transparent;
+}
+
+.selected-members {
+  color: "#f9f9f9";
+  border-bottom: "1px solid white";
+}
+.search-wrapper {
+  position: relative;
+  margin-top: 0.625rem;
+}
+.search {
+  display: flex;
+  align-items: center;
+  padding: 0.825rem 0.55rem 0.825rem 2.53rem;
+  gap: 0.55rem;
+
+  width: 26.07rem;
+  border: 1px solid #c4c4c4;
+  background-color: inherit;
+  border-radius: 0.44rem;
+
+  font-weight: 400;
+  font-size: 0.825rem;
+  line-height: 1.088;
+  letter-spacing: 0.1px;
+  color: #c4c4c4;
+}
+.search-icon {
+  position: absolute;
+  left: 19.36px;
+  top: 15.5px;
+}
+.num-of-active-users {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.66rem;
+  line-height: 1.32rem;
+  display: flex;
+  justify-content: flex-end;
+  color: #b4b4b4;
+}
+.active-users {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.53rem;
+  width: 100%;
+  margin-top: 0.7rem;
+}
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 78.5%;
+}
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 0.88rem;
+}
+.user-name,
+.user-id {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.77rem;
+  line-height: 1.155rem;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}

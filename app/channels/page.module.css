@@ -1,0 +1,20 @@
+.container {
+  background: white;
+  padding: 11rem 1.1rem 10.56rem 10.56rem;
+}
+
+.title {
+  color: #000000;
+  font-size: 1.98rem;
+  line-height: 1.32rem;
+  font-weight: 616;
+  font-family: "Public Sans";
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 13.64rem;
+  margin-bottom: 2.64rem;
+}

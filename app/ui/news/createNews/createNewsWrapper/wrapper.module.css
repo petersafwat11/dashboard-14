@@ -1,0 +1,21 @@
+.label {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  letter-spacing: 0.88%;
+  color: rgba(50, 60, 71, 0.6);
+  margin-bottom: 0.99rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.first {
+  display: flex;
+  align-items: flex-start;
+  gap: 11.44px;
+  margin-bottom: 0.99rem;
+}

@@ -1,0 +1,8 @@
+.square,
+.checkbox {
+  width: 19.36px;
+  height: 17.6px;
+  border-radius: 3.52px;
+  border: 0.88px solid #0832de;
+  justify-self: start;
+}

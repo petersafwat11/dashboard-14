@@ -1,0 +1,26 @@
+/* DateTimeSelector.css
+.dateTimeSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.datePicker,
+.timePicker {
+  margin: 0 10px;
+}
+
+.datePicker .react-date-picker__wrapper,
+.timePicker .react-time-picker__wrapper {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.datePicker .react-date-picker__inputGroup__input,
+.timePicker .react-time-picker__inputGroup__input {
+  border: none;
+} */
+.date-wrapper {
+  width: 100%;
+}

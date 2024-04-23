@@ -1,0 +1,29 @@
+.forget-password {
+  background: #f2f3f5;
+  width: 100%;
+  padding-top: 11rem;
+  padding-bottom: 4rem;
+}
+.forget-password-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+.logo-wrapper {
+  width: 6.437rem;
+  height: 6.437rem;
+  border-radius: 50%;
+  background-color: #0d111a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  color: #26334d;
+  font-weight: 700;
+  font-family: RobotoBold;
+  font-size: 3rem;
+  line-height: 4.3rem;
+}

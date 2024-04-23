@@ -1,0 +1,27 @@
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.77rem;
+}
+
+.first-button,
+.second-button {
+  background: #4340da;
+  border-radius: 0.44rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9.79rem;
+  height: 2.2rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.8184rem;
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.second-button {
+  background: #da4040;
+  width: 5.94rem;
+}

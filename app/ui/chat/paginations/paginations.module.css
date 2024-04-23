@@ -1,0 +1,32 @@
+.paginations {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 1.1rem;
+  right: 1.54rem;
+}
+.para {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 0.66rem;
+  line-height: 0.825rem;
+  letter-spacing: 0.05em;
+  color: #787878;
+}
+.arrows {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.arrow {
+  font-size: 1rem;
+  color: #787878;
+}
+.arrow:hover,
+.para:hover {
+  color: #a1a1a1;
+}
+.paginations * {
+  cursor: pointer;
+}

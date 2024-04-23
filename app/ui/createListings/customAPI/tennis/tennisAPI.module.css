@@ -1,0 +1,19 @@
+.container {
+  width: 81.6rem;
+  border-radius: 0.85rem;
+  background: #fff;
+  padding: 1.1rem 1.76rem;
+  margin-top: 2rem;
+}
+.title {
+  color: #000;
+  font-family: "Public Sans";
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 120% */
+}
+.wrapper {
+  padding: 2rem;
+  display: flex;
+}

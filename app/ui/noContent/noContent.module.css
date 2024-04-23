@@ -1,0 +1,10 @@
+.no-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Roboto";
+  height: 2.5rem;
+}

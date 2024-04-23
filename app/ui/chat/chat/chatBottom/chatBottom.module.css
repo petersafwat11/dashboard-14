@@ -1,0 +1,113 @@
+.chat-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.75rem 0.98rem 0.93rem 1.125rem;
+  position: relative;
+  background: #121b22;
+}
+#specificInput::-webkit-input-placeholder {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+}
+
+#specificInput:-moz-placeholder {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+}
+
+#specificInput::-moz-placeholder {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+}
+
+#specificInput:-ms-input-placeholder {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+}
+
+.chat-input {
+  background: #101a22;
+  color: rgba(255, 255, 255, 0.95);
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  resize: none;
+  flex-grow: 1;
+  height: 2.1rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid transparent;
+  /* transition: all 0.3s ease-in-out; */
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+}
+.chat-input::-webkit-scrollbar {
+  width: 4.5px;
+}
+
+/* Track */
+.chat-input::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+.chat-input::-webkit-scrollbar-thumb {
+  background: #060c11;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.chat-input::-webkit-scrollbar-thumb:hover {
+  background: #515151;
+}
+
+.chat-input::placeholder {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.chat-input:focus-visible {
+  border: 2px solid #03a1cd;
+  outline: none;
+}
+.chat-bottom-send {
+  min-width: 1.79rem;
+  height: 1.79rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #03a1cd;
+  border-radius: 50%;
+  transition: all 0.2s ease-out;
+}
+.chat-bottom-send:hover {
+  background-color: rgba(3, 161, 205, 0.4);
+}
+.chat-bottom-send,
+.chat-bottom-emojy,
+.chat-bottom-user {
+  cursor: pointer;
+}
+.sending {
+  /* background-color: #3498db; */
+  animation: sending 0.5s ease-in-out infinite;
+}
+
+@keyframes sending {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-40%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,52 @@
+.container {
+  background: #ffffff;
+  border-radius: 13.2px;
+  width: 50.6rem;
+  padding: 1.1rem 1.76rem 1.76rem 1.32rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.43rem;
+}
+
+.first,
+.second,
+.third {
+  display: flex;
+  align-items: center;
+  gap: 3.1288rem;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.99rem;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  font-family: "Public Sans";
+  color: black;
+}
+
+.input {
+  background-color: rgba(123, 151, 206, 0.06);
+  height: 2.64rem;
+  width: 20.38rem;
+  border-radius: 0.44rem;
+  padding: 0.77rem 0.88rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+  line-height: 1.144rem;
+  font-family: "Public Sans";
+  border: 1px solid #007bff;
+}
+
+.first .input-group:last-of-type .input,
+.second .input-group:last-of-type .input {
+  width: 24.02rem;
+}

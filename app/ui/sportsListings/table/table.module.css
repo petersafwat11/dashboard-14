@@ -1,0 +1,80 @@
+.table {
+  border-radius: 12.32px;
+  background: white;
+  padding-top: 1.1rem;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 1.43rem;
+}
+
+.table-header,
+.table-row,
+.table-row-single-team {
+  display: grid;
+  grid-template-columns: 3rem 7rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 1.32rem 1.76rem 1.32rem 3.08rem;
+}
+.table-row-single-team {
+  grid-template-columns: 3rem 7rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.table-header {
+  background-color: #2a3042;
+  color: white;
+}
+.table-cell,
+.date-and-time {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 0.93rem;
+  line-height: 1.41rem;
+}
+.table-cell:nth-child(2) {
+  margin-right: 1.76rem;
+}
+.table-cell:first-of-type {
+  font-size: 0.81rem;
+  line-height: 0.99rem;
+}
+.table-header .table-cell {
+  font-weight: 600;
+}
+.table-row,
+.table-row-single-team {
+  color: #575757;
+  height: auto;
+  padding: 1.1rem 1.76rem 1.1rem 3.08rem;
+  border-bottom: 1px solid #e1e0e2;
+}
+.date-and-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+.flag {
+  color: #e1e1e1;
+  font-size: 1.32rem;
+  cursor: pointer;
+}
+
+.square,
+.checkbox {
+  width: 19.36px;
+  height: 17.6px;
+  border-radius: 3.52px;
+  border: 0.88px solid #0832de;
+  justify-self: start;
+}
+.severs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.3rem 0.9rem;
+  background-color: blue;
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+}

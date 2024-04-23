@@ -1,0 +1,24 @@
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.65rem;
+  margin-right: 2.03rem;
+}
+.description {
+  margin-top: 1rem;
+  margin-bottom: 1.265rem;
+}
+.details {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+.sub-heading {
+  color: #000000;
+  font-size: 1.65rem;
+  line-height: 1.32rem;
+  font-weight: 500;
+  font-family: "Public Sans";
+  margin-bottom: 1.1rem;
+  margin-top: 3.08rem;
+}

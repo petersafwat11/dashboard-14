@@ -1,0 +1,24 @@
+/* .chat::before {
+  margin-top: 2rem;
+} */
+.chat {
+  margin: auto;
+  width: 100%;
+  height: 32rem;
+  background: #0d1318;
+  border-radius: 0.475rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.space {
+  width: 100%;
+  height: 1.25rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: inherit;
+}

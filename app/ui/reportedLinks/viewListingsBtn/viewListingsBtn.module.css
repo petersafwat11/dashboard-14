@@ -1,0 +1,14 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.92rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  justify-self: center;
+}
+.button:hover {
+  background-color: rgba(0, 123, 255, 0.505);
+}

@@ -1,0 +1,117 @@
+.container {
+  width: 29.48rem;
+  height: 33.94rem;
+  background: #0d1317;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.825rem;
+  padding: 1.65rem 2.2rem 1.76rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.add,
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.825rem 1.375rem;
+  gap: 0.55rem;
+
+  width: 3.74rem;
+  height: 1.54rem;
+  background: #4f4f4f;
+  border-radius: 0.275rem;
+  cursor: pointer;
+  color: white;
+}
+.title {
+  font-family: "Public Sans";
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+}
+.forbidden-words {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-top: 3.82rem;
+}
+.group {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+.forbidden-word {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 0.77rem;
+  line-height: 0.88rem;
+  letter-spacing: 0.01em;
+  color: #ebebeb;
+}
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px; /* Adjust as needed based on your design */
+  cursor: pointer;
+  display: inline-block;
+  margin-top: -1.3rem;
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Style for the custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px; /* Adjust as needed based on your design */
+  width: 20px; /* Adjust as needed based on your design */
+  background-color: inherit; /* Background color */
+  border-radius: 5px; /* Border radius */
+  border: 1px solid rgba(181, 181, 181, 1);
+}
+
+/* Style for the checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark {
+  background-color: #4f4f4f; /* Change background color when checked */
+}
+
+/* Hide the default checkmark */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark:after {
+  display: block;
+}
+
+/* Style for the checkmark icon */
+.custom-checkbox .checkmark:after {
+  left: 7px; /* Adjust as needed based on your design */
+  top: 3px; /* Adjust as needed based on your design */
+  width: 5px; /* Adjust as needed based on your design */
+  height: 10px; /* Adjust as needed based on your design */
+  border: solid white; /* Checkmark color */
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}

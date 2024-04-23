@@ -1,0 +1,44 @@
+.selection {
+  position: relative;
+}
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border: 1px solid #000000;
+  width: 14.3rem;
+  color: #343434;
+  font-size: 0.93rem;
+  line-height: 1.25rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.arrow {
+  font-size: 1.25rem;
+  color: #0832de;
+}
+.options {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 1px solid black;
+  width: 14.3rem;
+  margin-top: 0.25rem;
+  position: absolute;
+  top: 2.6rem;
+  left: 0;
+}
+.option {
+  font-size: 0.93rem;
+  line-height: 1.25rem;
+  cursor: pointer;
+  color: #343434;
+  width: 100%;
+  padding: 0.25rem;
+}
+.option:hover {
+  background: gray;
+  color: white;
+}

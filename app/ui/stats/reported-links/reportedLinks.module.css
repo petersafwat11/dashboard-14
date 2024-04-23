@@ -1,0 +1,67 @@
+.container {
+  width: 17.6rem;
+  padding: 1.48rem 1.6rem 1.6rem;
+  background: white;
+  height: 19.6rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.63rem;
+}
+.title {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  /* H2 */
+  font-family: "DM Sans";
+  font-size: 1.21rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.options {
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.description,
+.name {
+  color: rgb(0, 0, 0);
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.description {
+  margin-top: 0.87rem;
+  margin-bottom: 1.32rem;
+}
+.total,
+.sport {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 7.5rem;
+}
+.sports {
+  width: 7rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 2rem;
+}
+.sport {
+  width: 100%;
+}
+.total *,
+.sport * {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "DM Sans";
+  font-size: 0.77rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}

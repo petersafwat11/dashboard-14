@@ -1,0 +1,37 @@
+.container {
+  background: #ffffff;
+  border-radius: 13.2px;
+  width: 21.12rem;
+  padding: 1.04rem 1.32rem 1.36rem;
+}
+
+.title {
+  font-weight: 440;
+  font-size: 1.1rem;
+  line-height: 1.32rem;
+  color: #000000;
+  font-family: "Public Sans";
+  margin-bottom: 0.99rem;
+}
+
+.details {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.66rem;
+  margin-top: 1.04rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.input-group p {
+  font-family: "Inter";
+  font-weight: 352;
+  font-size: 0.66rem;
+  line-height: 1.1rem;
+  color: #242424;
+}

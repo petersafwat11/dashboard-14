@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 69rem;
+  height: 19.5rem;
+  background-color: white;
+  margin-bottom: 3.9rem;
+}
+.devider {
+  width: 1px;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  margin-left: 2rem;
+  margin-right: 2.5rem;
+}
+.left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  margin-top: 3.3rem;
+  margin-left: 1.65rem;
+}
+.chart-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.name {
+  display: flex;
+  gap: 1.05rem;
+  align-items: center;
+}
+.up-span,
+.down-span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(52, 181, 58, 1);
+}
+.down-span {
+  background-color: rgba(255, 58, 41, 1);
+}
+.name h3 {
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 1.32rem;
+  font-weight: 500;
+}
+.right {
+  height: 15rem;
+  width: 33rem;
+  margin-top: 2rem;
+  margin-bottom: 2.365rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.chart-title {
+  margin-left: 3.5rem;
+  color: #000;
+  font-family: "DM Sans";
+  font-size: 1.1rem;
+  font-weight: 500;
+}
