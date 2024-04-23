@@ -1,10 +1,9 @@
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import classes from "./login.module.css";
 import LoginForm from "../ui/loginForm/LoginForm";
 
-const Login = async() => {
-  
+const Login = async () => {
   return (
     <div className={classes["login"]}>
       <div className={classes["login-top"]}>
@@ -13,7 +12,9 @@ const Login = async() => {
         </div>
         <h1 className={classes["title"]}>Log In</h1>
       </div>
-      <LoginForm />
+      <Suspense fallback={<div>Loading...</div>}>
+        <LoginForm />
+      </Suspense>
     </div>
   );
 };
