@@ -4,11 +4,9 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import classes from "./loginForm.module.css";
 
 const LoginForm = () => {
-  const notify = (message, type) => toast[type](message);
 
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -38,7 +36,6 @@ const LoginForm = () => {
       router.push(next);
     } catch (error) {
       console.log("error", error);
-      notify(error.response.data.message, "error");
     }
   };
   const handleKeyDown = (event) => {
@@ -51,18 +48,6 @@ const LoginForm = () => {
 
   return (
     <div className={classes["form"]}>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={true}
-        draggable={true}
-        pauseOnHover={true}
-        theme="dark"
-      />
       {protectedPage && (
         <p
           className={classes["not-authorized"]}
