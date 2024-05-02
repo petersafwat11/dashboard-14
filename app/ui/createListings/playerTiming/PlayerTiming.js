@@ -10,7 +10,7 @@ const PlayerTiming = ({
   dispatchDetail,
   dispatchActionType,
 }) => {
-  console.log("data.time", data.time);
+  console.log("data.time", data);
   return (
     <div
       style={{ width: width ? width : "14.7rem" }}
@@ -34,17 +34,17 @@ const PlayerTiming = ({
           </label>
           <input
             onKeyUp={(event) => {
-              if (event.key === "Backspace" && data.time.length === 3) {
+              if (event.key === "Backspace" && data?.time.length === 3) {
                 dispatchDetail({
                   type: dispatchActionType,
                   value: {
                     ...data,
-                    time: data.time.slice(0, -1),
+                    time: data?.time.slice(0, -1),
                   },
                 });
               }
             }}
-            value={data.time}
+            value={data?.time}
             id="time"
             onChange={(e) => {
               dispatchDetail({

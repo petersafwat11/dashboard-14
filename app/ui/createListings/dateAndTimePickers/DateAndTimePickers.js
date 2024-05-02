@@ -14,7 +14,7 @@ const DatePickerr = ({ data, dispatchDetail, type, dateAndTime }) => {
           onChange={(date) =>
             dispatchDetail({ type: type, value: { ...data, date: date } })
           }
-          value={data.date}
+          value={data?.date}
         />
       ) : (
         <DatePicker

@@ -12,11 +12,11 @@ import VpnAndCasino from "../ui/editLinks/vpnAndCasino/VpnAndCasino";
 import Giveaway from "../ui/editLinks/giveaway/Giveaway";
 import linksReducer from "../ui/reducers/linkReducer";
 const Page = () => {
-
   const [intialFetched, setIntailFetched] = useState(null);
   const fetchLinks = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.BACKEND_SERVER}/links`);
+      const response = await axios.get(`http://localhost:8000/api/links`);
+      console.log("data fetched", response.data.data.data);
       dispachNewLink({ type: "FETCH-ALL", value: response.data.data.data[0] });
       setIntailFetched(response.data.data.data[0]);
     } catch (error) {

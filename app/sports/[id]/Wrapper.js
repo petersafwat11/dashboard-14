@@ -246,26 +246,26 @@ const Wrapper = ({ eventData }) => {
 
           <PlayerTiming
             dispatchActionType={"PLAY-STREAM"}
-            data={match?.playStream}
+            data={match?.playStream }
             dispatchDetail={dispatchDetail}
             width={"13.8rem"}
             title={"When to allow stream to play"}
           />
           <PlayerTiming
             dispatchActionType={"REMOVE-STREAM"}
-            data={match?.removeStream}
+            data={match?.removeStream }
             dispatchDetail={dispatchDetail}
             title={"When to delete page & listing"}
           />
           <PlayerTiming
             dispatchActionType={"REMOVE-COUNTDOWN"}
-            data={match?.removeCountdown}
+            data={match?.removeCountdown }
             dispatchDetail={dispatchDetail}
             title={"When to show LIVE & remove countdown"}
           />
           <PlayerTiming
             dispatchActionType={"ENDED-EVENT"}
-            data={match?.endedEvent}
+            data={match?.endedEvent }
             dispatchDetail={dispatchDetail}
             title={"When to remove LIVE & display ended event"}
           />

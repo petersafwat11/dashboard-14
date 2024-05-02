@@ -4,7 +4,7 @@ import { convertDate, getMatchDate } from "@/app/lib/datesFucntions";
 import Wrapper from "./Wrapper";
 const Page = async ({ params }) => {
   const id = params.id;
-  let eventData;
+  let eventData = null;
   if (params.id !== "create") {
     const response = await axios.get(
       `${process.env.BACKEND_SERVER}/sports/${id}`
