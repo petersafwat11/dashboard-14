@@ -126,14 +126,15 @@ const Wrapper = ({ eventData }) => {
       match.sportCategory === "fights" || match.sportCategory === "ufc"
         ? { booxingfighters: booxingfighters, mainEvent: mainEvent }
         : match.sportCategory === "f1"
-        ? positions
+        ? F1Positions
         : match.sportCategory === "horseracing"
         ? horseRiders
         : match.sportCategory === "nascar"
         ? drivers
         : match.sportCategory === "netball"
         ? lineups
-        : match.sportCategory === "tennis"
+        : match.sportCategory === "tennis" ||
+          match.sportCategory === "tabletennis"
         ? tennisLineups
         : match.sportCategory === "volleyball"
         ? teamPlayers
@@ -167,6 +168,10 @@ const Wrapper = ({ eventData }) => {
         pathname,
         customAPIData,
         "sports/customAPI"
+      );
+      console.log(
+        "customAPIResponse?.data?.data",
+        customAPIResponse?.data?.data
       );
       customAPIID = customAPIResponse?.data?.data?.data?._id;
       console.log("customAPIID", customAPIID);
@@ -246,26 +251,26 @@ const Wrapper = ({ eventData }) => {
 
           <PlayerTiming
             dispatchActionType={"PLAY-STREAM"}
-            data={match?.playStream }
+            data={match?.playStream}
             dispatchDetail={dispatchDetail}
             width={"13.8rem"}
             title={"When to allow stream to play"}
           />
           <PlayerTiming
             dispatchActionType={"REMOVE-STREAM"}
-            data={match?.removeStream }
+            data={match?.removeStream}
             dispatchDetail={dispatchDetail}
             title={"When to delete page & listing"}
           />
           <PlayerTiming
             dispatchActionType={"REMOVE-COUNTDOWN"}
-            data={match?.removeCountdown }
+            data={match?.removeCountdown}
             dispatchDetail={dispatchDetail}
             title={"When to show LIVE & remove countdown"}
           />
           <PlayerTiming
             dispatchActionType={"ENDED-EVENT"}
-            data={match?.endedEvent }
+            data={match?.endedEvent}
             dispatchDetail={dispatchDetail}
             title={"When to remove LIVE & display ended event"}
           />
@@ -305,7 +310,8 @@ const Wrapper = ({ eventData }) => {
           <NascarAPI drivers={drivers} dispatchDrivers={dispatchDrivers} />
         ) : match.sportCategory === "netball" ? (
           <NetballAPI lineups={lineups} dispatchLineups={dispatchLineups} />
-        ) : match.sportCategory === "tennis" ? (
+        ) : match.sportCategory === "tennis" ||
+          match.sportCategory === "tabletennis" ? (
           <TennisAPI
             tennisLineups={tennisLineups}
             dispatchTennisLineups={dispatchTennisLineups}

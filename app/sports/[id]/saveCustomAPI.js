@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const saveCustomAPI = async (pathname, data, endpoint) => {
   let request;
-  if (!pathname.endsWith("create")) {
+  if (false) {
     request = axios.patch(
       `${process.env.BACKEND_SERVER}/${endpoint}/${pathname.split("/")[3]}
         `,
