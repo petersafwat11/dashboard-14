@@ -5,8 +5,12 @@ import ChannelName from "../channelName/ChannelName";
 import StreamLink from "../streamLink/StreamLink";
 import Preview from "../preview/Preview";
 import { usePathname, useRouter } from "next/navigation";
-import { reducerIntialValue, streamLinkReducer } from "../../reducers/streamLinksReducer";
-import classes from './wrapper.module.css'
+import {
+  reducerIntialValue,
+  streamLinkReducer,
+} from "../../reducers/streamLinksReducer";
+import classes from "./wrapper.module.css";
+import { deleteItem, saveItem } from "@/app/lib/createPages";
 const Wrapper = ({ streamLinks }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -15,7 +19,7 @@ const Wrapper = ({ streamLinks }) => {
     streamLinks || reducerIntialValue
   );
   const saveChanges = () => {
-    saveItem(pathname, streamLink, dispatchDetail, "streamLink");
+    saveItem(pathname, streamLink, dispatchDetail, router, "streamLink");
   };
   const deleteStreamLink = async () => {
     deleteItem(pathname, router, "streamLink");

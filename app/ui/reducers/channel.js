@@ -1,5 +1,5 @@
 export const channelReducer = (state, action) => {
-  console.log("state", state);
+  // console.log("state", state);
   if (action.type === "CLEAR-ALL") {
     return reducerIntialValue;
   } else if (action.type === "NOT-FOUND") {
@@ -19,10 +19,9 @@ export const channelReducer = (state, action) => {
     return {
       ...state,
       streamLinkName: action.streamLinkName,
-      streamLinkUrl: action.streamLinkUrl,
+      streamLink: action.streamLink,
     };
-  }
-   else {
+  } else {
     return {
       ...state,
       // streamLinksAvaiable: action.value,
@@ -33,8 +32,8 @@ export const reducerIntialValue = {
   channelName: "",
   mode: "",
   language: "",
+  streamLink: "",
   streamLinkName: "",
-  streamLinkUrl: "",
   error: "",
   // streamLinksAvaiable: [],
 };

@@ -21,10 +21,11 @@ const StreamLinks = ({
           {streamLinksAvaiable.map((item, index) => (
             <p
               onClick={() => {
+                console.log("STREAM-LINK", item);
                 dispatchDetail({
                   type: "STREAM-LINK",
                   streamLinkName: item.streamLinkName,
-                  streamLinkUrl: item.streamLinkUrl,
+                  streamLink: item._id,
                 });
               }}
               style={{

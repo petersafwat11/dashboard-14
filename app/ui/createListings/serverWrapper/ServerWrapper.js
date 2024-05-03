@@ -53,13 +53,13 @@ const ServerWrapper = ({
     );
   };
 
-  useEffect(() => {
-    dispatchServer({ type: "UPDATE-ALL", value: existServers?.mainLanguages });
-    dispatchOtherServer({
-      type: "UPDATE-ALL",
-      value: existServers?.moreLanguages,
-    });
-  }, [existServers]);
+  // useEffect(() => {
+  //   dispatchServer({ type: "UPDATE-ALL", value: existServers?.mainLanguages });
+  //   dispatchOtherServer({
+  //     type: "UPDATE-ALL",
+  //     value: existServers?.moreLanguages,
+  //   });
+  // }, [existServers]);
   return (
     <div>
       {existMatch ? (

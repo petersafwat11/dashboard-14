@@ -25,6 +25,7 @@ const Wrapper = ({ streamLinksData, channelData }) => {
     revalidatePage("channels");
   };
   useEffect(() => {
+    console.log("channelData", channelData);
     dispatchDetail({ type: "UPDATE-ALL", value: channelData });
   }, [channelData]);
   return (

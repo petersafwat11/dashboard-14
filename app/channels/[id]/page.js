@@ -21,9 +21,15 @@ const Page = async ({ params }) => {
         },
       }
     );
-    channel = channelData?.data?.data?.data;
+    channel = channelData?.data?.data;
+    const { streamLink } = channelData?.data?.data;
+    console.log(streamLink);
+    channel.streamLink = streamLink?._id;
+    channel.streamLinkName = streamLink?.channelName;
     delete channel._id;
     delete channel.__v;
+    // delete channel.streamLink;
+    console.log("channelData", channel);
   }
   const streamLinksData = await axios.get(
     `${process.env.BACKEND_SERVER}/streamLink`,
@@ -35,9 +41,12 @@ const Page = async ({ params }) => {
     }
   );
   const streamLinksAvaiable = streamLinksData?.data?.data?.data.map((item) => {
-    return { streamLinkName: item.channelName, streamLinkUrl: item.URL };
+    return {
+      streamLinkName: item.channelName,
+      streamLinkUrl: item.URL,
+      _id: item._id,
+    };
   });
-  console.log("channelData", channel);
   return (
     <div className={classes["container"]}>
       <h1 className={classes["title"]}>Channels Listings</h1>
