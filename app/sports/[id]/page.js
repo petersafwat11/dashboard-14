@@ -5,6 +5,7 @@ import Wrapper from "./Wrapper";
 const Page = async ({ params }) => {
   const id = params.id;
   let eventData = null;
+  let matchPoll = null;
   if (params.id !== "create") {
     const response = await axios.get(
       `${process.env.BACKEND_SERVER}/sports/${id}`
@@ -27,11 +28,14 @@ const Page = async ({ params }) => {
     eventData.eventTime = eventTime;
     eventData.eventDateText = dateText;
     eventData.endedEvent = endedEvent;
+    matchPoll = eventData.matchPoll;
+    // delete eventData.matchPoll;
   }
+  console.log("matchPoll", matchPoll);
   return (
     <div className={classes["create-listing"]}>
       <h1 className={classes["title"]}>Create New Listing</h1>
-      <Wrapper eventData={eventData} />
+      <Wrapper eventData={eventData} matchPoll={matchPoll} />
     </div>
   );
 };

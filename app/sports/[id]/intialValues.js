@@ -143,7 +143,4 @@ export const matchIntialVal = {
   removeStream: { date: "", time: "" },
   removeCountdown: { date: "", time: "" },
   endedEvent: { date: "", time: "" },
-  showsPoll: false,
-  firstTeamPoll: "",
-  secondTeamPoll: "",
 };

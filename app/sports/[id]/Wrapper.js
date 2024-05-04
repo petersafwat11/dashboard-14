@@ -1,6 +1,6 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useCallback, useEffect, useReducer } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 
 import ActionsButtons from "@/app/ui/actionsButtons/ActionsButtons";
 import EventId from "@/app/ui/createListings/EventId/EventId";
@@ -48,17 +48,30 @@ import classes from "./page.module.css";
 import { saveCustomAPI } from "./saveCustomAPI";
 import { combineDateAndTime } from "@/app/lib/datesFucntions";
 import { deleteItem, saveItem } from "@/app/lib/createPages";
+import axios from "axios";
+import { saveMatchPoll } from "./saveMatchPoll";
 
-const Wrapper = ({ eventData }) => {
+const Wrapper = ({ eventData, matchPoll }) => {
   const pathname = usePathname();
 
   const router = useRouter();
 
   const [match, dispatchDetail] = useReducer(
     matchReducer,
-    eventData || matchIntialVal
+    eventData !== null ? eventData : matchIntialVal
   );
-
+  const pollIntialValue =
+    matchPoll !== null
+      ? matchPoll
+      : {
+          enabled: false,
+          inputs: [
+            { name: "input 1", value: "" },
+            { name: "input 2", value: "" },
+            { name: "input 3", value: "" },
+          ],
+        };
+  const [poll, setPoll] = useState(pollIntialValue);
   /// custom API reducers
   const [mainEvent, dispatchMainEvent] = useReducer(
     mainEventReducer,
@@ -162,7 +175,58 @@ const Wrapper = ({ eventData }) => {
     }
     delete formData.servers;
     let customAPIID;
-    if (customAPIData) {
+    let pollID;
+    if (customAPIData && poll?.enabled) {
+      console.log("poll enabled");
+      // const pollData = { enabled: poll.enabled, inputs: poll.inputs };
+      const pollResponse = await saveMatchPoll(
+        pathname,
+        poll,
+        "/sports/poll"
+      );
+      console.log("poll?.data?.data", pollResponse?.data?.data?.data);
+      pollID = pollResponse?.data?.data?.data?._id;
+      const customAPIResponse = await saveCustomAPI(
+        pathname,
+        customAPIData,
+        "sports/customAPI"
+      );
+      console.log(
+        "customAPIResponse?.data?.data",
+        customAPIResponse?.data?.data
+      );
+      customAPIID = customAPIResponse?.data?.data?.data?._id;
+      console.log("customAPIID", customAPIID);
+      formData.append("customAPI", customAPIID);
+      formData.append("matchPoll", pollID);
+      await saveItem(
+        pathname,
+        formData,
+        dispatchDetail,
+        router,
+        "sports",
+        "formData"
+      );
+    } else if (poll?.enabled) {
+      console.log("poll enabled");
+      // const pollData = { enabled: poll.enabled, inputs: poll.inputs };
+      const pollResponse = await saveMatchPoll(
+        pathname,
+        poll,
+        "/sports/poll"
+      );
+      console.log("poll?.data?.data", pollResponse?.data?.data?.data);
+      pollID = pollResponse?.data?.data?.data?._id;
+      formData.append("matchPoll", pollID);
+      await saveItem(
+        pathname,
+        formData,
+        dispatchDetail,
+        router,
+        "sports",
+        "formData"
+      );
+    } else if (customAPIData) {
       console.log("customAPIData exist");
       const customAPIResponse = await saveCustomAPI(
         pathname,
@@ -276,14 +340,7 @@ const Wrapper = ({ eventData }) => {
           />
         </div>
         <div className={classes["third"]}>
-          <Poll
-            data={{
-              showsPoll: match?.showsPoll,
-              firstTeamPoll: match?.firstTeamPoll,
-              secondTeamPoll: match?.secondTeamPoll,
-            }}
-            dispatchDetail={dispatchDetail}
-          />
+          <Poll poll={poll} setPoll={setPoll} />
 
           <EventId data={match?.matchId} dispatchDetail={dispatchDetail} />
         </div>
