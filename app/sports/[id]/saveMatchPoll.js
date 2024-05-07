@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const saveMatchPoll = async (pathname, data, endpoint, id) => {
+export const saveMatchPoll = async (pathname, data, endpoint) => {
   let request;
   if (!pathname.endsWith("create")) {
     request = axios.patch(

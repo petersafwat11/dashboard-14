@@ -9,7 +9,7 @@ const Poll = ({ setPoll, poll }) => {
         <div className={classes["toggler-wrapper"]}>
           <label className={classes["toggle"]}>
             <input
-              checked={poll.enabled}
+              checked={poll?.enabled}
               onChange={() => {
                 setPoll({
                   ...poll,
@@ -21,7 +21,7 @@ const Poll = ({ setPoll, poll }) => {
             />
             <div className={classes["toggle-switch"]}></div>
             <span className={classes["toggle-label"]}>
-              {poll.enabled ? "ON" : "OFF"}
+              {poll?.enabled ? "ON" : "OFF"}
             </span>
           </label>
         </div>
