@@ -10,7 +10,6 @@ const PlayerTiming = ({
   dispatchDetail,
   dispatchActionType,
 }) => {
-  console.log("data.time", data);
   return (
     <div
       style={{ width: width ? width : "14.7rem" }}

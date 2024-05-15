@@ -75,24 +75,12 @@ export const formatTime = (input) => {
   return formattedTime;
 };
 export const combineDateAndTime = (date, time) => {
-  const dateTime = {
-    date: new Date(date),
-    time: time,
-  };
+  const [hours, minutes] = time.split(":").map(Number);
 
-  const [hours, minutes] = dateTime.time.split(":");
-  const combinedDateTime = new Date(
-    Date.UTC(
-      dateTime.date.getFullYear(),
-      dateTime.date.getMonth(),
-      dateTime.date.getDate(),
-      hours,
-      minutes
-    )
-  );
-  combinedDateTime.setHours(hours, minutes);
-
-  const isoString = combinedDateTime.toISOString();
-
-  return isoString;
+  // Create a Date object in local time
+  const localDate = new Date(date);
+  localDate.setHours(hours, minutes);
+  // Return the ISO string in UTC
+  return localDate.toISOString();
 };
+

@@ -179,11 +179,7 @@ const Wrapper = ({ eventData, matchPoll }) => {
     if (customAPIData && poll?.enabled) {
       console.log("poll enabled");
       // const pollData = { enabled: poll.enabled, inputs: poll.inputs };
-      const pollResponse = await saveMatchPoll(
-        pathname,
-        poll,
-        "/sports/poll"
-      );
+      const pollResponse = await saveMatchPoll(pathname, poll, "/sports/poll");
       console.log("poll?.data?.data", pollResponse?.data?.data?.data);
       pollID = pollResponse?.data?.data?.data?._id;
       const customAPIResponse = await saveCustomAPI(
@@ -210,11 +206,7 @@ const Wrapper = ({ eventData, matchPoll }) => {
     } else if (poll?.enabled) {
       console.log("poll enabled");
       // const pollData = { enabled: poll.enabled, inputs: poll.inputs };
-      const pollResponse = await saveMatchPoll(
-        pathname,
-        poll,
-        "/sports/poll"
-      );
+      const pollResponse = await saveMatchPoll(pathname, poll, "/sports/poll");
       console.log("poll?.data?.data", pollResponse?.data?.data?.data);
       pollID = pollResponse?.data?.data?.data?._id;
       formData.append("matchPoll", pollID);
