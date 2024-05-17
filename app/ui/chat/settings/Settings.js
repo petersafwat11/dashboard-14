@@ -14,7 +14,7 @@ const Settings = ({ data }) => {
       slowMode: { ...chatMode.slowMode, value: !chatMode?.slowMode?.value },
     });
   };
-  const socket = io(`${process.env.STATIC_SERVER}`);
+  const socket = io(`${process.env.BACKEND_SERVER}`);
 
   const onSave = async () => {
     if (chatMode?.slowMode?.value && chatMode?.slowMode?.time < 1) {

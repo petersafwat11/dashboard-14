@@ -10,7 +10,7 @@
 //     let rest = string.substring(i);
 //     return rest;
 //   };
-//   const socket = io(`${process.env.STATIC_SERVER}`);
+//   const socket = io(`${process.env.BACKEND_SERVER}`);
 
 //   const [messages, setMessages] = useState(data);
 
@@ -172,12 +172,10 @@
 // };
 
 // export default AutoMod;
-import React from 'react'
+import React from "react";
 
 const AutoMod = () => {
-  return (
-    <div>AutoMod</div>
-  )
-}
+  return <div>AutoMod</div>;
+};
 
-export default AutoMod
+export default AutoMod;

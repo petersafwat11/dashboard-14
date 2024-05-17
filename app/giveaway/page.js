@@ -27,7 +27,7 @@ const Page = async ({ searchParams }) => {
     ...response?.data?.data?.data,
   };
   if (response?.data?.data?.data?.prizeImage !== null) {
-    eventData.imageSrc = `${process.env.STATIC_SERVER}/img/giveaway/${response?.data?.data?.data?.prizeImage}`;
+    eventData.imageSrc = `${process.env.BACKEND_SERVER}/img/giveaway/${response?.data?.data?.data?.prizeImage}`;
   } else {
     eventData.imageSrc = null;
   }

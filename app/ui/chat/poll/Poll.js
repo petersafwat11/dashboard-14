@@ -47,7 +47,7 @@ const newPollsReducers = (prevState, action) => {
 
 const Poll = ({ data }) => {
   console.log("poll data", data);
-  const socket = io(`${process.env.STATIC_SERVER}`);
+  const socket = io(`${process.env.BACKEND_SERVER}`);
 
   const [activePolls, setActivePolls] = useState(data || []);
   const [selectedPolls, setSelectedPolls] = useState([]);

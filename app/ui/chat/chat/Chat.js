@@ -23,7 +23,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   };
 
-  const socket = io(`${process.env.STATIC_SERVER}`);
+  const socket = io(`${process.env.BACKEND_SERVER}`);
 
   //chat mode
   const [chatMode, setChatMode] = useState(mode);

@@ -42,7 +42,7 @@ const ChatBody = ({
                   className={classes["user-icon"]}
                   src={
                     message.image.startsWith("user")
-                      ? `${process.env.STATIC_SERVER}/img/users/${message.image}`
+                      ? `${process.env.BACKEND_SERVER}/img/users/${message.image}`
                       : message.image
                   }
                   alt="avatar"

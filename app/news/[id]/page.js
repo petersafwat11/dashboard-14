@@ -13,11 +13,11 @@ const Page = async ({ params }) => {
     let newState = response?.data?.data?.data;
     delete newState.__v;
     console.log(newState);
-    newState.coverImage = `${process.env.STATIC_SERVER}/img/news/${newState.coverImage}`;
+    newState.coverImage = `${process.env.BACKEND_SERVER}/img/news/${newState.coverImage}`;
     newState.subNews = newState.subNews.map((item) => {
       let newItem = {
         ...item,
-        image: `${process.env.STATIC_SERVER}/img/news/${item.image}`,
+        image: `${process.env.BACKEND_SERVER}/img/news/${item.image}`,
       };
       return newItem;
     });
