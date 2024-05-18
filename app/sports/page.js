@@ -11,7 +11,7 @@ const page = async ({ searchParams }) => {
     params: {
       page: page,
       limit: rows,
-      sportCategory: sportCategory === "fights" ? undefined : category,
+      sportCategory: category === "fights" ? undefined : category,
       fightsGroup: category === "fights" ? true : undefined,
 
       searchValue: search,

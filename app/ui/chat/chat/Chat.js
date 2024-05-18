@@ -55,7 +55,8 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
         message: message,
       });
       console.log("response", response);
-      socket.emit(`chat message ${chatRoomSelection}`, message);
+      socket.emit(`chat message English (Default)`, message);
+      
       setMessages((prevState) => {
         return [...prevState, message];
       });
@@ -137,7 +138,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
 
   useEffect(() => {
     // Event listeners can be added here
-    socket.on(`chat message ${chatRoomSelection}`, (msg) => {
+    socket.on(`chat message English (Default)`, (msg) => {
       setMessages((prevState) => {
         return [...prevState, msg];
       });
@@ -156,15 +157,15 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
     };
   }, [socket, chatRoomSelection]);
 
-  useEffect(() => {
-    setMessage({
-      message: "",
-      image: "/svg/admin-profile.svg",
-      room: chatRoomSelection,
-      username: "AJ Sports Moderator",
-      color: "#fff",
-    });
-  }, [chatRoomSelection]);
+  // useEffect(() => {
+  //   setMessage({
+  //     message: "",
+  //     image: "/svg/admin-profile.svg",
+  //     room: chatRoomSelection,
+  //     username: "AJ Sports Moderator",
+  //     color: "#fff",
+  //   });
+  // }, [chatRoomSelection]);
   useEffect(() => {
     const fetchChatData = async () => {
       try {
