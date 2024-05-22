@@ -11,9 +11,6 @@ import io from "socket.io-client";
 import axios from "axios";
 
 const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
-  console.log("chatMode", mode);
-  // const { data: session, status } = useSession();
-
   const scrollToBottom = () => {
     const chatContainer = messagesRef.current;
     console.log(
@@ -41,7 +38,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
   };
   const [message, setMessage] = useState(messageDefaultState);
   const inputRef = useRef(null);
-  const [messages, setMessages] = useState(chatMessages);
+  const [messages, setMessages] = useState([]);
   const messagesRef = useRef(null);
 
   // make sending effect
@@ -51,12 +48,11 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
       // if (chatMode?.mode !== "Anyone Can Send") {
       //   return;
       // }
-      const response = await axios.post(`${process.env.BACKEND_SERVER}/chat`, {
+       await axios.post(`${process.env.BACKEND_SERVER}/chat`, {
         message: message,
       });
-      console.log("response", response);
       socket.emit(`chat message English (Default)`, message);
-      
+
       setMessages((prevState) => {
         return [...prevState, message];
       });
@@ -64,7 +60,6 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
         ...message,
         message: "",
       });
-      scrollToBottom();
       setIsSending(true);
       setTimeout(() => {
         setIsSending(false);
@@ -142,8 +137,6 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
       setMessages((prevState) => {
         return [...prevState, msg];
       });
-
-      scrollToBottom();
       console.log("message recieved", msg);
     });
     socket.on(`chat mode`, (data) => {
@@ -155,7 +148,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
     return () => {
       socket.disconnect();
     };
-  }, [socket, chatRoomSelection]);
+  }, [socket]);
 
   // useEffect(() => {
   //   setMessage({
@@ -175,6 +168,15 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
             sort: { createdAt: -1 },
           }
         );
+        const response = await axios.get(`${process.env.BACKEND_SERVER}/chat`, {
+          params: {
+            limit: 10,
+            room: "English (Default)",
+            sort: { _id: -1 },
+            mode: "normal",
+          },
+        });
+        setMessages(response?.data?.data?.data.reverse());
 
         const chatMode = await axios.get(
           `${process.env.BACKEND_SERVER}/chat/chatMode`
@@ -191,7 +193,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
   }, []);
   useEffect(() => {
     scrollToBottom();
-  }, []);
+  }, [messages]);
   return (
     <div className={classes["chat"]}>
       <ChatTop
