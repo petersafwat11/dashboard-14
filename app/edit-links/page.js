@@ -2,7 +2,7 @@ import axios from "axios";
 import classes from "./page.module.css";
 import Wrapper from "./Wrapper";
 const Page = async () => {
-  const response = await axios.get(`http://localhost:8000/api/links`);
+  const response = await axios.get(`${process.env.BACKEND_SERVER}/api/links`);
   const data = response.data.data.data[0];
   console.log("data", data);
   return (
