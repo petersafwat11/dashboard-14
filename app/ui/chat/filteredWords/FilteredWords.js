@@ -9,7 +9,9 @@ const FilteredWords = ({ data }) => {
   const arrayId = data?._id;
   console.log("filtered", data);
 
-  const [forbiddenWords, setForbiddenWords] = useState(data?.words);
+  const [forbiddenWords, setForbiddenWords] = useState(
+    data?.words ? data?.words : []
+  );
   const [selectedWords, setSelectedWords] = useState([]);
   const [newRuleVal, setNewRuleVal] = useState("");
   const [showAddPopup, setShowPopup] = useState(false);

@@ -14,6 +14,7 @@ import {
   flagItem,
 } from "@/app/lib/tabelsPages";
 import Popup from "../../popupWrapper/Popup";
+import axios from "axios";
 
 const Wrapper = ({ dataFetched, paginations }) => {
   const router = useRouter();
@@ -46,6 +47,12 @@ const Wrapper = ({ dataFetched, paginations }) => {
   useEffect(() => {
     setSports(dataFetched?.data?.data || []);
   }, [dataFetched]);
+  const deleteOldDAta = async () => {
+    const response = await axios.get(
+      `${process.env.BACKEND_SERVER}/sports/deleteOldData`
+    );
+    console.log("deleteOldData", response);
+  };
   return (
     <div className={classes["container"]}>
       {deleteAlert && (
@@ -59,12 +66,22 @@ const Wrapper = ({ dataFetched, paginations }) => {
 
       <div className={classes["sports-listings-top"]}>
         <SportsSelection />
-        <ActionsButtons
-          firstButtonFunction={createSport}
-          secondButtonFunction={toggleDeleteAlert}
-          first={"Create Listing"}
-          second={"Delete"}
-        />
+        <div className={classes["buttons"]}>
+          <ActionsButtons
+            firstButtonFunction={createSport}
+            secondButtonFunction={toggleDeleteAlert}
+            first={"Create Listing"}
+            second={"Delete"}
+          />
+          <button
+            onClick={() => {
+              deleteOldDAta();
+            }}
+            className={classes["delete-old-data"]}
+          >
+            Delete Old Data
+          </button>
+        </div>
       </div>
       <Table
         reverseFlagProp={reverseFlagProp}
