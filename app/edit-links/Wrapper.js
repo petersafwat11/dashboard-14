@@ -12,6 +12,8 @@ import VpnAndCasino from "../ui/editLinks/vpnAndCasino/VpnAndCasino";
 import Giveaway from "../ui/editLinks/giveaway/Giveaway";
 import linksReducer from "../ui/reducers/linkReducer";
 const Wrapper = ({ data }) => {
+  console.log("data", data);
+
   const [importedLinks, dispachNewLink] = useReducer(
     linksReducer,
     data ? data : {}
