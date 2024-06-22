@@ -35,6 +35,7 @@ const Wrapper = ({ data }) => {
           },
         }
       );
+      console.log("updated", updateLinks);
     } catch (error) {
       console.log("Error :", error);
     }
@@ -44,6 +45,7 @@ const Wrapper = ({ data }) => {
   };
   useEffect(() => {
     dispachNewLink({ type: "FETCH-ALL", value: data });
+    console.log("data", data);
   }, [data]);
 
   return (
