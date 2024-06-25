@@ -55,7 +55,12 @@ const Wrapper = ({ eventData, matchPoll }) => {
   const { playStream, removeStream, removeCountdown, endedEvent, eventTime } =
     eventData;
   console.log(
-    "playStream, removeStream, removeCountdown, endedEvent, eventTime"
+    "playStream, removeStream, removeCountdown, endedEvent, eventTime",
+    playStream,
+    removeStream,
+    removeCountdown,
+    endedEvent,
+    eventTime
   );
   const pathname = usePathname();
 
