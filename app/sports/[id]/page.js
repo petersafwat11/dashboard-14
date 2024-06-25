@@ -15,7 +15,6 @@ const Page = async ({ params }) => {
     const removeStream = convertDate(response?.data?.data?.removeStream);
     const removeCountdown = convertDate(response?.data?.data?.removeCountdown);
     const endedEvent = convertDate(response?.data?.data?.endedEvent);
-
     const eventDate = convertDate(response?.data?.data?.eventDate).date;
     const eventTime = convertDate(response?.data?.data?.eventDate).time;
 

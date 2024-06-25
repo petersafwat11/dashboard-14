@@ -52,6 +52,11 @@ import axios from "axios";
 import { saveMatchPoll } from "./saveMatchPoll";
 
 const Wrapper = ({ eventData, matchPoll }) => {
+  const { playStream, removeStream, removeCountdown, endedEvent, eventTime } =
+    eventData;
+  console.log(
+    "playStream, removeStream, removeCountdown, endedEvent, eventTime"
+  );
   const pathname = usePathname();
 
   const router = useRouter();
