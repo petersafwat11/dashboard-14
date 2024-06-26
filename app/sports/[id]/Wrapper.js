@@ -259,22 +259,24 @@ const Wrapper = ({ eventData, matchPoll }) => {
   };
 
   useEffect(() => {
-    const playStream = convertDate(eventData?.playStream);
-    const removeStream = convertDate(eventData?.removeStream);
-    const removeCountdown = convertDate(eventData?.removeCountdown);
-    const endedEvent = convertDate(eventData?.endedEvent);
-    const eventDate = convertDate(eventData?.eventDate).date;
-    const eventTime = convertDate(eventData?.eventDate).time;
-    const dateText = getMatchDate(eventData?.eventDate, true);
-    const convertedData = { ...eventData };
-    convertedData.playStream = playStream;
-    convertedData.removeStream = removeStream;
-    convertedData.removeCountdown = removeCountdown;
-    convertedData.eventDate = eventDate;
-    convertedData.eventTime = eventTime;
-    convertedData.eventDateText = dateText;
-    convertedData.endedEvent = endedEvent;
-    dispatchDetail({ type: "UPDATE-ALL", value: convertedData });
+    if (eventData !== null) {
+      const playStream = convertDate(eventData?.playStream);
+      const removeStream = convertDate(eventData?.removeStream);
+      const removeCountdown = convertDate(eventData?.removeCountdown);
+      const endedEvent = convertDate(eventData?.endedEvent);
+      const eventDate = convertDate(eventData?.eventDate).date;
+      const eventTime = convertDate(eventData?.eventDate).time;
+      const dateText = getMatchDate(eventData?.eventDate, true);
+      const convertedData = { ...eventData };
+      convertedData.playStream = playStream;
+      convertedData.removeStream = removeStream;
+      convertedData.removeCountdown = removeCountdown;
+      convertedData.eventDate = eventDate;
+      convertedData.eventTime = eventTime;
+      convertedData.eventDateText = dateText;
+      convertedData.endedEvent = endedEvent;
+      dispatchDetail({ type: "UPDATE-ALL", value: convertedData });
+    }
   }, [eventData]);
   return (
     <div>
