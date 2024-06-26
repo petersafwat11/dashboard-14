@@ -46,30 +46,23 @@ import {
 } from "./intialValues";
 import classes from "./page.module.css";
 import { saveCustomAPI } from "./saveCustomAPI";
-import { combineDateAndTime } from "@/app/lib/datesFucntions";
+import {
+  combineDateAndTime,
+  convertDate,
+  getMatchDate,
+} from "@/app/lib/datesFucntions";
 import { deleteItem, saveItem } from "@/app/lib/createPages";
 import axios from "axios";
 import { saveMatchPoll } from "./saveMatchPoll";
 
 const Wrapper = ({ eventData, matchPoll }) => {
-  const { playStream, removeStream, removeCountdown, endedEvent, eventTime } =
-    eventData;
-  console.log(
-    "playStream, removeStream, removeCountdown, endedEvent, eventTime",
-    playStream,
-    removeStream,
-    removeCountdown,
-    endedEvent,
-    eventTime
-  );
+  console.log("eventData", eventData);
+
   const pathname = usePathname();
 
   const router = useRouter();
 
-  const [match, dispatchDetail] = useReducer(
-    matchReducer,
-    eventData !== null ? eventData : matchIntialVal
-  );
+  const [match, dispatchDetail] = useReducer(matchReducer, matchIntialVal);
   const pollIntialValue =
     matchPoll !== null
       ? matchPoll
@@ -264,8 +257,24 @@ const Wrapper = ({ eventData, matchPoll }) => {
   const deleteMatch = async () => {
     deleteItem(pathname, router, "sports");
   };
+
   useEffect(() => {
-    dispatchDetail({ type: "UPDATE-ALL", value: eventData });
+    const playStream = convertDate(eventData?.playStream);
+    const removeStream = convertDate(eventData?.removeStream);
+    const removeCountdown = convertDate(eventData?.removeCountdown);
+    const endedEvent = convertDate(eventData?.endedEvent);
+    const eventDate = convertDate(eventData?.eventDate).date;
+    const eventTime = convertDate(eventData?.eventDate).time;
+    const dateText = getMatchDate(eventData?.eventDate, true);
+    const convertedData = { ...eventData };
+    convertedData.playStream = playStream;
+    convertedData.removeStream = removeStream;
+    convertedData.removeCountdown = removeCountdown;
+    convertedData.eventDate = eventDate;
+    convertedData.eventTime = eventTime;
+    convertedData.eventDateText = dateText;
+    convertedData.endedEvent = endedEvent;
+    dispatchDetail({ type: "UPDATE-ALL", value: convertedData });
   }, [eventData]);
   return (
     <div>
