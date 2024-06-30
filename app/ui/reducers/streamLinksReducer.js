@@ -3,6 +3,8 @@ export const reducerIntialValue = {
   URL: "",
   // RMTPKey: "",
   error: "",
+  language: "",
+  mode: "",
 };
 export const streamLinkReducer = (state, action) => {
   if (action.type === "CLEAR-ALL") {
@@ -17,6 +19,13 @@ export const streamLinkReducer = (state, action) => {
     return { ...state, channelName: action.value };
   } else if (action.type === "URL") {
     return { ...state, URL: action.value };
+  } else if (action.type === "LANGUAGE") {
+    return { ...state, language: action.value };
+  } else if (action.type === "MODE") {
+    if (state.mode === action.value) {
+      return { ...state, mode: null };
+    }
+    return { ...state, mode: action.value };
   } else {
     return state;
   }

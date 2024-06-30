@@ -8,12 +8,11 @@ const SignoutBtn = () => {
   const router = useRouter();
   const signoutHandler = async () => {
     try {
-      await axios.get(
-        `${process.env.BACKEND_SERVER}/users/logout`
-      );
+      await axios.get(`${process.env.BACKEND_SERVER}/users/logout`);
       Cookies.remove("user");
       Cookies.remove("token");
       router.push("/login");
+      console.log("log out");
     } catch (error) {
       console.log("error", error);
     }

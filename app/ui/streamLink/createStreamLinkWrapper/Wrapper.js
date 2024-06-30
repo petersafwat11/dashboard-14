@@ -11,6 +11,8 @@ import {
 } from "../../reducers/streamLinksReducer";
 import classes from "./wrapper.module.css";
 import { deleteItem, saveItem } from "@/app/lib/createPages";
+import OneFeildInput from "../oneFeildInput/OneFeildInput";
+import Mode from "../mode/Mode";
 const Wrapper = ({ streamLinks }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -53,6 +55,16 @@ const Wrapper = ({ streamLinks }) => {
             dispatchDetail={dispatchDetail}
           />
           <Preview url={streamLink.URL} />
+        </div>
+        <div>
+          <Mode data={streamLink?.mode} dispatchDetail={dispatchDetail} />
+
+          <OneFeildInput
+            title={"Language"}
+            dispatchType={"LANGUAGE"}
+            data={streamLink?.language}
+            dispatchDetail={dispatchDetail}
+          />
         </div>
       </div>
     </div>
