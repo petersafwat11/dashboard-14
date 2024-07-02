@@ -60,50 +60,81 @@ const ServersAndLanguages = ({
                         {serverNum}
                       </label>
                       <input
+                        style={{
+                          border:
+                            servers[lang.toLowerCase()]?.channels?.find(
+                              (server) => server.name == "server-" + serverNum
+                            ).serverValue?.name &&
+                            servers[lang.toLowerCase()]?.channels?.find(
+                              (server) => server.name == "server-" + serverNum
+                            ).serverValue?.streamLinkUrl
+                              ? "1px solid blue"
+                              : "",
+                        }}
                         value={
                           servers[lang.toLowerCase()]?.channels?.find(
                             (server) => server.name == "server-" + serverNum
                           ).serverValue?.name
                         }
-                        readOnly
+                        onChange={(e) => {
+                          dispatchServer({
+                            type: "SERVER",
+                            lang: lang.toLocaleUpperCase(),
+                            value: {
+                              name: "server-" + serverNum,
+                              streamLinkName: e.target.value,
+                              streamLinkUrl: null,
+                            },
+                          });
+                        }}
+                        // readOnly
                         placeholder={`server-${serverNum}`}
                         className={classes["input"]}
                       />
                       {streamLinksAvaiable?.length > 0 && (
                         <div className={classes["search-options"]}>
-                          {streamLinksAvaiable?.map((item, index) => (
-                            <p
-                              onClick={() => {
-                                dispatchServer({
-                                  type: "SERVER",
-                                  lang: lang.toLocaleUpperCase(),
-                                  value: {
-                                    name: "server-" + serverNum,
-                                    streamLinkName: item?.streamLinkName,
-                                    streamLinkUrl: item?.streamLinkUrl,
-                                  },
-                                });
-                              }}
-                              style={{
-                                background:
-                                  index % 2 === 0 ? "inherit" : "#F5F5F5",
-                              }}
-                              key={`${item?.streamLinkUrl}-${index}`}
-                              className={
-                                classes[
-                                  item.streamLinkName ===
-                                  servers[lang.toLowerCase()].channels.find(
-                                    (server) =>
-                                      server.name == "server-" + serverNum
-                                  ).serverValue?.name
-                                    ? "option"
-                                    : "selected-option"
-                                ]
-                              }
-                            >
-                              {item?.streamLinkName}
-                            </p>
-                          ))}
+                          {streamLinksAvaiable
+                            ?.filter((item) =>
+                              item?.streamLinkName.includes(
+                                servers[lang.toLowerCase()]?.channels?.find(
+                                  (server) =>
+                                    server.name == "server-" + serverNum
+                                ).serverValue?.name
+                              )
+                            )
+                            .map((item, index) => (
+                              <p
+                                onClick={() => {
+                                  dispatchServer({
+                                    type: "SERVER",
+                                    lang: lang.toLocaleUpperCase(),
+                                    value: {
+                                      name: "server-" + serverNum,
+                                      streamLinkName: item?.streamLinkName,
+                                      streamLinkUrl: item?.streamLinkUrl,
+                                    },
+                                  });
+                                }}
+                                style={{
+                                  background:
+                                    index % 2 === 0 ? "inherit" : "#F5F5F5",
+                                }}
+                                key={`${item?.streamLinkUrl}-${index}`}
+                                className={
+                                  classes[
+                                    item.streamLinkName ===
+                                    servers[lang.toLowerCase()].channels.find(
+                                      (server) =>
+                                        server.name == "server-" + serverNum
+                                    ).serverValue?.name
+                                      ? "option"
+                                      : "selected-option"
+                                  ]
+                                }
+                              >
+                                {item?.streamLinkName}
+                              </p>
+                            ))}
                         </div>
                       )}
                     </div>
@@ -201,6 +232,21 @@ const ServersAndLanguages = ({
                       {serverNum}
                     </label>
                     <input
+                      style={{
+                        border:
+                          otherServers.otherLangs
+                            .find((lang) => lang.index == indexx + 1)
+                            .channels.find(
+                              (server) => server.name == "server-" + serverNum
+                            ).streamLinkName &&
+                          otherServers.otherLangs
+                            .find((lang) => lang.index == indexx + 1)
+                            .channels.find(
+                              (server) => server.name == "server-" + serverNum
+                            ).streamLinkUrl
+                            ? "1px solid blue"
+                            : "",
+                      }}
                       value={
                         otherServers.otherLangs
                           .find((lang) => lang.index == indexx + 1)
@@ -208,17 +254,18 @@ const ServersAndLanguages = ({
                             (server) => server.name == "server-" + serverNum
                           ).streamLinkName || ""
                       }
-                      // onChange={(e) => {
-                      //   dispatchOtherServer({
-                      //     type: "SERVER-CHANNELS",
-                      //     value: {
-                      //       name: `server-${serverNum}`,
-                      //       index: index + 1,
-                      //       serverValue: e.target.value,
-                      //     },
-                      //   });
-                      // }}
-                      readOnly
+                      onChange={(e) => {
+                        dispatchOtherServer({
+                          type: "SERVER-CHANNELS",
+                          value: {
+                            index: indexx + 1,
+                            name: `server-${serverNum}`,
+                            streamLinkName: e.target.value,
+                            streamLinkUrl: null,
+                          },
+                        });
+                      }}
+                      // readOnly
                       placeholder={`server-${serverNum}`}
                       className={classes["input"]}
                     />

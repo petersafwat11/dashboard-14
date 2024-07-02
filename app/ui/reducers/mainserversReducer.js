@@ -1,4 +1,3 @@
-
 import { generateArray } from "@/app/lib/generateArray";
 
 export const mainserversReducers = (state, action) => {
@@ -19,7 +18,10 @@ export const mainserversReducers = (state, action) => {
     } else if (action.type === "NUM") {
       let serversNames = generateArray(action.value)
         .map((num) => `server-${num}`)
-        .map((name) => ({ name: name, serverValue: {} }));
+        .map((name) => ({
+          name: name,
+          serverValue: { name: "", streamLinkUrl: "" },
+        }));
 
       return {
         ...state,
@@ -35,7 +37,10 @@ export const mainserversReducers = (state, action) => {
       );
       newServers.push({
         name: action.value.name,
-        serverValue: {name: action.value.streamLinkName, streamLinkUrl:action.value.streamLinkUrl },
+        serverValue: {
+          name: action.value.streamLinkName,
+          streamLinkUrl: action.value.streamLinkUrl,
+        },
       });
 
       return {
@@ -71,7 +76,10 @@ export const mainserversReducers = (state, action) => {
       );
       newServers.push({
         name: action.value.name,
-        serverValue: {name: action.value.streamLinkName, streamLinkUrl:action.value.streamLinkUrl },
+        serverValue: {
+          name: action.value.streamLinkName,
+          streamLinkUrl: action.value.streamLinkUrl,
+        },
       });
 
       return {
@@ -106,8 +114,11 @@ export const mainserversReducers = (state, action) => {
         (server) => server.name !== action.value.name
       );
       newServers.push({
-        name: action.value.name,                                    
-        serverValue: {name: action.value.streamLinkName, streamLinkUrl:action.value.streamLinkUrl },
+        name: action.value.name,
+        serverValue: {
+          name: action.value.streamLinkName,
+          streamLinkUrl: action.value.streamLinkUrl,
+        },
       });
 
       return {
