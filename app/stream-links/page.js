@@ -5,7 +5,7 @@ import axios from "axios";
 
 const Page = async ({ searchParams }) => {
   const page = searchParams?.page || 1;
-  const rows = searchParams?.rows || 10;
+  const rows = searchParams?.rows || 200;
   const search = searchParams?.search;
 
   const streamLinksData = await axios.get(

@@ -57,6 +57,7 @@ import { saveMatchPoll } from "./saveMatchPoll";
 
 const Wrapper = ({ eventData, matchPoll }) => {
   console.log("eventData", eventData);
+  const oldCustomAPIID = eventData?.customAPI?._id || null;
 
   const pathname = usePathname();
 
@@ -89,7 +90,6 @@ const Wrapper = ({ eventData, matchPoll }) => {
     positionsReducer,
     positionsIntialVal
   );
-  console.log("positionsIntialValpositionsIntialVal", positionsIntialVal);
   const [horseRiders, dispatchHorseRiders] = useReducer(
     horseRidersReducer,
     horseRidersIntialVal
@@ -167,11 +167,13 @@ const Wrapper = ({ eventData, matchPoll }) => {
     data.endedEvent = endedEvent;
     delete data.eventDate;
     delete data.eventTime;
+    delete data.customAPI;
     data.eventDate = eventDate;
     data?.teamsTitle?.length < 1 ? (data.teamsTitle = null) : "";
     data?.firstTeamName?.length < 1 ? (data.firstTeamName = null) : "";
     data?.secondTeamName?.length < 1 ? (data.secondTeamName = null) : "";
     data?.matchId?.length < 1 ? (data.matchId = null) : "";
+    console.log("data", data);
     let formData = new FormData();
     for (const [key, value] of Object.entries(data)) {
       formData.append(key, value);
@@ -183,19 +185,14 @@ const Wrapper = ({ eventData, matchPoll }) => {
       console.log("poll enabled");
       // const pollData = { enabled: poll.enabled, inputs: poll.inputs };
       const pollResponse = await saveMatchPoll(pathname, poll, "/sports/poll");
-      console.log("poll?.data?.data", pollResponse?.data?.data?.data);
       pollID = pollResponse?.data?.data?.data?._id;
       const customAPIResponse = await saveCustomAPI(
         pathname,
         customAPIData,
-        "sports/customAPI"
-      );
-      console.log(
-        "customAPIResponse?.data?.data",
-        customAPIResponse?.data?.data
+        "sports/customAPI",
+        oldCustomAPIID
       );
       customAPIID = customAPIResponse?.data?.data?.data?._id;
-      console.log("customAPIID", customAPIID);
       formData.append("customAPI", customAPIID);
       formData.append("matchPoll", pollID);
       await saveItem(
@@ -226,7 +223,8 @@ const Wrapper = ({ eventData, matchPoll }) => {
       const customAPIResponse = await saveCustomAPI(
         pathname,
         customAPIData,
-        "sports/customAPI"
+        "sports/customAPI",
+        oldCustomAPIID
       );
       console.log(
         "customAPIResponse?.data?.data",
@@ -235,6 +233,7 @@ const Wrapper = ({ eventData, matchPoll }) => {
       customAPIID = customAPIResponse?.data?.data?.data?._id;
       console.log("customAPIID", customAPIID);
       formData.append("customAPI", customAPIID);
+
       await saveItem(
         pathname,
         formData,
@@ -276,8 +275,69 @@ const Wrapper = ({ eventData, matchPoll }) => {
       convertedData.eventDateText = dateText;
       convertedData.endedEvent = endedEvent;
       dispatchDetail({ type: "UPDATE-ALL", value: convertedData });
+      if (pathname !== "create") {
+        const category = eventData?.sportCategory;
+        if (category === "tennis" || category === "tabletennis") {
+          dispatchTennisLineups({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+        if (category === "fights" || category === "ufc") {
+          dispatchBoxingFighters({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData?.booxingfighters,
+          });
+          dispatchMainEvent({
+            type: "UPDATE-ALL",
+            value: eventData.customAPI.customAPIData.mainEvent,
+          });
+        }
+        if (category === "f1") {
+          dispatchF1Positions({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+        if (category === "horseracing") {
+          dispatchHorseRiders({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+
+        if (category === "nascar") {
+          dispatchDrivers({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+
+        if (category === "netball") {
+          dispatchLineups({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+        if (category === "volleyball") {
+          dispatchTeamPlayers({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData,
+          });
+        }
+        if (category === "wwe") {
+          dispatchfeaturedFighters({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData?.featuredFighters,
+          });
+          dispatchWweFighters({
+            type: "UPDATE-ALL",
+            value: eventData?.customAPI?.customAPIData?.wweFighters,
+          });
+        }
+      }
     }
-  }, [eventData]);
+  }, [eventData, pathname]);
   return (
     <div>
       <div className={classes["actions"]}>

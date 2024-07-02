@@ -4,7 +4,7 @@ import Wrapper from "../ui/sportsListings/wrapper/Wrapper";
 import axios from "axios";
 const page = async ({ searchParams }) => {
   const page = searchParams?.page || 1;
-  const rows = searchParams?.rows || 10;
+  const rows = searchParams?.rows || 200;
   const search = searchParams?.search;
   const category = searchParams?.category || "Football";
   const sportsData = await axios.get(`${process.env.BACKEND_SERVER}/sports`, {
@@ -13,7 +13,6 @@ const page = async ({ searchParams }) => {
       limit: rows,
       sportCategory: category === "fights" ? undefined : category,
       fightsGroup: category === "fights" ? true : undefined,
-
       searchValue: search,
       or: ["title"],
     },
