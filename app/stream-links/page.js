@@ -14,6 +14,7 @@ const Page = async ({ searchParams }) => {
       params: {
         page: page,
         limit: rows,
+        sort: { channelName: 1 },
         searchValue: search,
         or: ["channelName"],
       },

@@ -13,6 +13,7 @@ const Page = async ({ params }) => {
       params: {
         page: 1,
         limit: 0,
+        sort: { channelName: 1 },
       },
     }
   );
