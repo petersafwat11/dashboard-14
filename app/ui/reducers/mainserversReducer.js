@@ -60,7 +60,10 @@ export const mainserversReducers = (state, action) => {
     } else if (action.type === "NUM") {
       let serversNames = generateArray(action.value)
         .map((num) => `server-${num}`)
-        .map((name) => ({ name: name, serverValue: {} }));
+        .map((name) => ({
+          name: name,
+          serverValue: { name: "", streamLinkUrl: "" },
+        }));
 
       return {
         ...state,
@@ -99,7 +102,10 @@ export const mainserversReducers = (state, action) => {
     } else if (action.type === "NUM") {
       let serversNames = generateArray(action.value)
         .map((num) => `server-${num}`)
-        .map((name) => ({ name: name, serverValue: {} }));
+        .map((name) => ({
+          name: name,
+          serverValue: { name: "", streamLinkUrl: "" },
+        }));
 
       return {
         ...state,
