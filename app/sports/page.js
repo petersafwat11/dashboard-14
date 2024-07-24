@@ -15,6 +15,7 @@ const page = async ({ searchParams }) => {
       fightsGroup: category === "fights" ? true : undefined,
       searchValue: search,
       or: ["title"],
+      sort: { eventDate: 1 },
     },
   });
   const paginations = {

@@ -4,9 +4,9 @@ const nextConfig = {
     // FRONTEND_SERVER: "http://localhost:3000",
     // BACKEND_SERVER: "http://localhost:5000/api",
     // STATIC_SERVER: "http://localhost:5000",
-    FRONTEND_SERVER: "https://ajsportstv.ch",
-    BACKEND_SERVER: "https://ajsportstv.ch/api",
-    STATIC_SERVER: "https://ajsportstv.ch",
+    FRONTEND_SERVER: "https://ajsports.ch",
+    BACKEND_SERVER: "https://ajsports.ch/api",
+    STATIC_SERVER: "https://ajsports.ch",
   },
   images: {
     domains: [
