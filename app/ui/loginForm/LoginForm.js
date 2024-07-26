@@ -26,11 +26,11 @@ const LoginForm = () => {
       Cookies.set("token", response.data.token, {
         expires: 1,
       });
-      let next = "/dashboard";
-      const search = searchParams.get("next");
-      if (search) {
-        next = search;
-      }
+      let next = "/";
+      // const search = searchParams.get("next");
+      // if (search) {
+      //   next = search;
+      // }
       setEmail("");
       setPassword("");
       router.push(next);
