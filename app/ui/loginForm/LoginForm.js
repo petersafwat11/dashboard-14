@@ -26,14 +26,14 @@ const LoginForm = () => {
       Cookies.set("token", response.data.token, {
         expires: 1,
       });
-      let next = "/";
+      // let next = "/";
       // const search = searchParams.get("next");
       // if (search) {
       //   next = search;
       // }
       setEmail("");
       setPassword("");
-      router.push(next);
+      router.push('/');
     } catch (error) {
       console.log("error", error);
     }

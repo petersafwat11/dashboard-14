@@ -30,7 +30,7 @@ export function middleware(request) {
   if (request.nextUrl.pathname !== "/login" && !allowedRoles.includes(role)) {
     
     const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("next", request.nextUrl.pathname);
+    // loginUrl.searchParams.set("next", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
   }
 
