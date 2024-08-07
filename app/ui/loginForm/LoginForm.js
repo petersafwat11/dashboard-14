@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import classes from "./loginForm.module.css";
 
 const LoginForm = () => {
-
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,20 +25,20 @@ const LoginForm = () => {
       Cookies.set("token", response.data.token, {
         expires: 1,
       });
-      // let next = "/";
-      // const search = searchParams.get("next");
-      // if (search) {
-      //   next = search;
-      // }
+      let next = "/sports";
+      const search = searchParams.get("next");
+      if (search) {
+        next = search;
+      }
       setEmail("");
       setPassword("");
-      router.push('/');
+      router.push("/");
+      console.log("redirect");
     } catch (error) {
       console.log("error", error);
     }
   };
   const handleKeyDown = (event) => {
-    console.log("normal");
     if (event.key === "Enter") {
       // Handle the Enter key press here
       handleSubmit();
