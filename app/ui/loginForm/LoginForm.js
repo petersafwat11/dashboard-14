@@ -32,7 +32,10 @@ const LoginForm = () => {
       }
       setEmail("");
       setPassword("");
-      router.push("/");
+      setTimeout(() => {
+        router.push(next);
+      }, 1000);
+
       console.log("redirect");
     } catch (error) {
       console.log("error", error);
