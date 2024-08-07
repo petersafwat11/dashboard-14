@@ -22,13 +22,14 @@ export function middleware(request) {
     request.nextUrl.pathname.startsWith("/login") &&
     allowedRoles.includes(role)
   ) {
+    console.log("already signed in");
     const homeUrl = new URL("/", request.url);
     return NextResponse.redirect(homeUrl);
   }
 
   // Handle redirection for users not logged in or without the proper role
   if (request.nextUrl.pathname !== "/login" && !allowedRoles.includes(role)) {
-    
+    console.log("not signed in");
     const loginUrl = new URL("/login", request.url);
     // loginUrl.searchParams.set("next", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
