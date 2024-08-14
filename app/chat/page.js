@@ -46,7 +46,6 @@ const page = async () => {
         </div>
         <div className={classes["second"]}>
           <ChatUsers />
-          <UserActions />
 
           <FilteredWords data={chatFilteredWords?.data?.data?.data[0]} />
           <Rules data={chatRules?.data?.data?.data[0]} />

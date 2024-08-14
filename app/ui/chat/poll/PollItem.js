@@ -27,6 +27,7 @@ const PollItem = ({ item, onSelect, selectedPolls }) => {
       >
         <input
           type="checkbox"
+          readOnly
           checked={
             selectedPolls.find((selected) => selected === item._id) || false
           }

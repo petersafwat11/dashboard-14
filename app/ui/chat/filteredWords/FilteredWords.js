@@ -7,7 +7,6 @@ import classes from "./style.module.css";
 import Popup from "../../popupWrapper/Popup";
 const FilteredWords = ({ data }) => {
   const arrayId = data?._id;
-  console.log("filtered", data);
 
   const [forbiddenWords, setForbiddenWords] = useState(
     data?.words ? data?.words : []
@@ -100,7 +99,7 @@ const FilteredWords = ({ data }) => {
                 }}
                 className={classes["custom-checkbox"]}
               >
-                <input type="checkbox" />
+                <input readOnly type="checkbox" />
                 <span className={classes["checkmark"]}></span>
               </label>
               <p className={classes["forbidden-word"]}>{item}</p>

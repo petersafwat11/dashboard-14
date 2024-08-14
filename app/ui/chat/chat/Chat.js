@@ -9,18 +9,15 @@ import Cookies from "js-cookie";
 // import { useSession } from "next-auth/react";
 import io from "socket.io-client";
 import axios from "axios";
+import ArrowDown from "./arrowDown/ArrowDown";
 
 const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
   const scrollToBottom = () => {
     const chatContainer = messagesRef.current;
-    console.log(
-      "chatContainer chatContainer chatContainerchatContainer",
-      chatContainer.scrollHeight
-    );
     chatContainer.scrollTop = chatContainer.scrollHeight;
   };
 
-  const socket = io(`${process.env.BACKEND_SERVER}`);
+  const socket = useRef(null);
 
   //chat mode
   const [chatMode, setChatMode] = useState(mode);
@@ -37,7 +34,9 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
     color: "#fff",
   };
   const [message, setMessage] = useState(messageDefaultState);
+  const [showArrowDown, setShowArrowDown] = useState(false);
   const inputRef = useRef(null);
+  const oldScrollHeightRef = useRef(0);
   const [messages, setMessages] = useState([]);
   const messagesRef = useRef(null);
 
@@ -48,10 +47,10 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
       // if (chatMode?.mode !== "Anyone Can Send") {
       //   return;
       // }
-       await axios.post(`${process.env.BACKEND_SERVER}/chat`, {
+      await axios.post(`${process.env.BACKEND_SERVER}/chat`, {
         message: message,
       });
-      socket.emit(`chat message English (Default)`, message);
+      socket.current.emit(`chat message English (Default)`, message);
 
       setMessages((prevState) => {
         return [...prevState, message];
@@ -132,33 +131,40 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
   };
 
   useEffect(() => {
-    // Event listeners can be added here
-    socket.on(`chat message English (Default)`, (msg) => {
+    if (!socket.current || !socket?.current?.connected) {
+      socket.current = io(`${process.env.STATIC_SERVER}`, {
+        autoConnect: false,
+        reconnection: true,
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+      });
+
+      socket.current.connect();
+    }
+
+    socket.current.on("connect", () => {
+      console.log("Connected to socket server");
+    });
+    socket.current.on(`chat message English (Default)`, (msg) => {
       setMessages((prevState) => {
         return [...prevState, msg];
       });
       console.log("message recieved", msg);
     });
-    socket.on(`chat mode`, (data) => {
-      console.log("chat mode updated", data);
-      setChatMode(data);
+
+    socket.current.on("disconnect", () => {
+      console.log("Disconnected from socket server");
     });
 
     // Clean up the socket connection when the component unmounts
     return () => {
-      socket.disconnect();
+      if (socket.current) {
+        socket.current.disconnect();
+      }
     };
   }, [socket]);
 
-  // useEffect(() => {
-  //   setMessage({
-  //     message: "",
-  //     image: "/svg/admin-profile.svg",
-  //     room: chatRoomSelection,
-  //     username: "AJ Sports Moderator",
-  //     color: "#fff",
-  //   });
-  // }, [chatRoomSelection]);
   useEffect(() => {
     const fetchChatData = async () => {
       try {
@@ -170,7 +176,7 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
         );
         const response = await axios.get(`${process.env.BACKEND_SERVER}/chat`, {
           params: {
-            limit: 10,
+            limit: 20,
             room: "English (Default)",
             sort: { _id: -1 },
             mode: "normal",
@@ -186,16 +192,84 @@ const Chat = ({ chatFilteredWords, chatMessages, mode }) => {
         console.log(error);
       }
     };
+    fetchChatData();
     const intervalId = setInterval(fetchChatData, 60000);
 
     // Clean up the interval to prevent memory leaks
     return () => clearInterval(intervalId);
   }, []);
+
   useEffect(() => {
-    scrollToBottom();
+    const ref = messagesRef.current;
+    const getPrevMessages = async () => {
+      const response = await axios.get(`${process.env.BACKEND_SERVER}/chat`, {
+        params: {
+          limit: 20,
+          skip: messages.length,
+          room: "English (Default)",
+          sort: { _id: -1 },
+          mode: "normal",
+        },
+      });
+      console.log("response?.data?.data?.data.reverse", response?.data?.data);
+      setMessages((prev) => {
+        return [...response?.data?.data?.data.reverse(), ...prev];
+      });
+    };
+
+    const handleScroll = async () => {
+      if (
+        messagesRef.current.scrollHeight - messagesRef.current.scrollTop >
+        700
+      ) {
+        setShowArrowDown(true);
+      } else {
+        setShowArrowDown(false);
+      }
+      if (messagesRef.current.scrollTop === 0) {
+        oldScrollHeightRef.current = messagesRef.current.scrollHeight;
+        await getPrevMessages();
+      }
+    };
+
+    if (ref) {
+      ref.scrollTop = ref.scrollHeight;
+      // Attach the scroll event handler
+      ref.addEventListener("scroll", handleScroll);
+    }
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      if (ref) {
+        ref.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, [messages]);
+  useEffect(() => {
+    // Adjust the scroll position after messages are updated
+    if (messagesRef.current) {
+      const newScrollHeight = messagesRef.current.scrollHeight;
+      if (
+        newScrollHeight - oldScrollHeightRef.current < 200 &&
+        messagesRef.current.scrollHeight - messagesRef.current.scrollTop < 500
+      ) {
+        {
+          scrollToBottom();
+        }
+      } else {
+        messagesRef.current.style.scrollBehavior = "auto";
+        messagesRef.current.scrollTop =
+          newScrollHeight - oldScrollHeightRef.current;
+        messagesRef.current.style.scrollBehavior = "smooth";
+      }
+    }
+  }, [messages]);
+
+  // Empty array ensures that effect is only run on mount and unmount
+
   return (
     <div className={classes["chat"]}>
+      {showArrowDown && <ArrowDown scrollDown={scrollToBottom} />}
       <ChatTop
         chatRoomSelection={chatRoomSelection}
         contollChatRoom={contollChatRoom}

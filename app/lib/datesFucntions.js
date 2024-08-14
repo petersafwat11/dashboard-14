@@ -11,7 +11,6 @@ export const convertDate = (dateStr) => {
   return { date, time };
 };
 export const getTimeRemainingInMinutes = (timeInZeroTimezone, minutesToAdd) => {
-  console.log("xx", timeInZeroTimezone, minutesToAdd);
   if (!timeInZeroTimezone || !minutesToAdd) {
     return false;
   }
@@ -31,10 +30,6 @@ export const getTimeRemainingInMinutes = (timeInZeroTimezone, minutesToAdd) => {
   const timeRemainingInMinutes = Math.round(timeDifference / (1000 * 60));
 
   // Return time remaining in minutes if it's positive, otherwise return false
-  console.log(
-    "xxxx",
-    timeRemainingInMinutes >= 0 ? timeRemainingInMinutes : false
-  );
 
   return timeRemainingInMinutes >= 0 ? timeRemainingInMinutes : false;
 };

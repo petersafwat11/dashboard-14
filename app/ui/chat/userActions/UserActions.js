@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import classes from "./userActions.module.css";
 
-const UserActions = () => {
-  const [notValid, setNotValid] = useState();
+const UserActions = ({ userData, banIp, muteMember }) => {
   return (
     <div className={classes["container"]}>
       <h2 className={classes["title"]}>User actions</h2>
@@ -17,13 +16,17 @@ const UserActions = () => {
           width="71"
         />
         <div className={classes["user-data"]}>
-          <p className={classes["name"]}>messiog10</p>
-          <p className={classes["id"]}>15.25.63.0.1</p>
+          <p className={classes["name"]}>{userData.name}</p>
+          <p className={classes["id"]}>{userData.ip}</p>
         </div>
       </div>
       <div className={classes["actions"]}>
-        <button className={classes["mute-button"]}>Mute </button>
-        <button className={classes["ban-button"]}>IP Ban</button>
+        <button onClick={muteMember} className={classes["mute-button"]}>
+          Mute{" "}
+        </button>
+        <button onClick={banIp} className={classes["ban-button"]}>
+          IP Ban
+        </button>
       </div>
     </div>
   );

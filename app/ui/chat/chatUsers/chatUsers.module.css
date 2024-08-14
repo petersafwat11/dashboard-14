@@ -33,7 +33,10 @@
   padding-bottom: 4.4px;
   border-bottom: 1px solid transparent;
 }
-
+.selected-members,
+.active-members {
+  cursor: pointer;
+}
 .selected-members {
   color: "#f9f9f9";
   border-bottom: "1px solid white";
@@ -74,6 +77,27 @@
   justify-content: flex-end;
   color: #b4b4b4;
 }
+.active-users::-webkit-scrollbar {
+  width: 4.5px;
+}
+
+/* Track */
+.active-users::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+.active-users::-webkit-scrollbar-thumb {
+  background: #747d84;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.active-users::-webkit-scrollbar-thumb:hover {
+  background: rgba(116, 125, 132, 0.621);
+  cursor: pointer;
+}
+
 .active-users {
   display: flex;
   align-items: flex-start;
@@ -81,13 +105,19 @@
   gap: 0.53rem;
   width: 100%;
   margin-top: 0.7rem;
+  height: 356px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .user {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 78.5%;
+  cursor: pointer;
 }
+
 .user-details {
   display: flex;
   align-items: center;

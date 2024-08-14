@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./settings.module.css";
 import axios from "axios";
 import io from "socket.io-client";
 
 const Settings = ({ data }) => {
+  const socket = useRef(null);
+
   const [chatMode, setChatMode] = useState(data[0]);
 
   const [error, setError] = useState(false);
@@ -14,8 +16,6 @@ const Settings = ({ data }) => {
       slowMode: { ...chatMode.slowMode, value: !chatMode?.slowMode?.value },
     });
   };
-  const socket = io(`${process.env.BACKEND_SERVER}`);
-
   const onSave = async () => {
     if (chatMode?.slowMode?.value && chatMode?.slowMode?.time < 1) {
       setError(true);
@@ -26,7 +26,7 @@ const Settings = ({ data }) => {
         `${process.env.BACKEND_SERVER}/chat/chatMode/${data[0]?._id}`,
         chatMode
       );
-      socket.emit(`chat mode`, chatMode);
+      socket.current.emit(`chat mode`, chatMode);
     } catch (error) {
       console.log("error", error);
     }
@@ -40,6 +40,33 @@ const Settings = ({ data }) => {
       slowMode: { ...chatMode.slowMode, time: sanitizedValue },
     });
   };
+  useEffect(() => {
+    if (!socket.current || !socket?.current?.connected) {
+      socket.current = io(`${process.env.STATIC_SERVER}`, {
+        autoConnect: false,
+        reconnection: true,
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+      });
+
+      socket.current.connect();
+    }
+
+    socket.current.on("connect", () => {
+      console.log("Connected to socket server");
+    });
+    socket.current.on("disconnect", () => {
+      console.log("Disconnected from socket server");
+    });
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      if (socket.current) {
+        socket.current.disconnect();
+      }
+    };
+  }, [socket]);
 
   return (
     <div className={classes["container"]}>
@@ -87,7 +114,11 @@ const Settings = ({ data }) => {
                     }}
                     className={classes["custom-checkbox"]}
                   >
-                    <input checked={item === chatMode?.mode} type="checkbox" />
+                    <input
+                      readOnly
+                      checked={item === chatMode?.mode}
+                      type="checkbox"
+                    />
                     <span className={classes["checkmark"]}></span>
                   </label>
                   <label className={classes["label"]}>{item} </label>

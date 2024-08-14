@@ -7,7 +7,6 @@ import { handleSelectItem } from "../chatFunctions/ChatFunctions";
 import classes from "./rules.module.css";
 const Rules = ({ data }) => {
   const chatRulesId = data?._id;
-  console.log("rules", data);
   const [selectedRules, setSelectedRules] = useState([]);
   const [rules, setRules] = useState(data?.rules);
   const [newRuleVal, setNewRuleVal] = useState("");
@@ -84,7 +83,7 @@ const Rules = ({ data }) => {
                 }}
                 className={classes["custom-checkbox"]}
               >
-                <input type="checkbox" />
+                <input readOnly type="checkbox" />
                 <span className={classes["checkmark"]}></span>
               </label>
               <p className={classes["rule-para"]}>

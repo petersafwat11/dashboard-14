@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import Popup from "../../popupWrapper/Popup";
 import MakePoll from "../makePoll/MakePoll";
 import classes from "./poll.module.css";
@@ -46,8 +46,36 @@ const newPollsReducers = (prevState, action) => {
 };
 
 const Poll = ({ data }) => {
-  console.log("poll data", data);
-  const socket = io(`${process.env.BACKEND_SERVER}`);
+  // const socket = io(`${process.env.BACKEND_SERVER}`);
+  const socket = useRef(null);
+  useEffect(() => {
+    if (!socket.current || !socket?.current?.connected) {
+      socket.current = io(`${process.env.STATIC_SERVER}`, {
+        autoConnect: false,
+        reconnection: true,
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+      });
+
+      socket.current.connect();
+    }
+
+    socket.current.on("connect", () => {
+      console.log("Connected to socket server");
+    });
+
+    socket.current.on("disconnect", () => {
+      console.log("Disconnected from socket server");
+    });
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      if (socket.current) {
+        socket.current.disconnect();
+      }
+    };
+  }, [socket]);
 
   const [activePolls, setActivePolls] = useState(data || []);
   const [selectedPolls, setSelectedPolls] = useState([]);
@@ -70,7 +98,7 @@ const Poll = ({ data }) => {
       );
       console.log("result", resultArray);
       setActivePolls(resultArray);
-      socket.emit(`chat poll`, resultArray);
+      socket.current.emit(`chat poll`, resultArray);
       setSelectedPolls([]);
 
       console.log("respose", response);
@@ -107,7 +135,10 @@ const Poll = ({ data }) => {
       );
       console.log("response.data.data.data", response.data.data.data);
       setActivePolls([response.data.data.data, ...activePolls]);
-      socket.emit(`chat poll`, [response.data.data.data, ...activePolls]);
+      socket.current.emit(`chat poll`, [
+        response.data.data.data,
+        ...activePolls,
+      ]);
 
       togglePopup();
 

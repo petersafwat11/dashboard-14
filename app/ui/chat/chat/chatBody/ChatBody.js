@@ -9,7 +9,6 @@ const ChatBody = ({
   messagesRef,
   lastMessage,
 }) => {
-  console.log("chatFilteredWords", chatFilteredWords);
   const censorWords = (text) => {
     // Create a regular expression pattern for all words in the word list
     const pattern = new RegExp(`\\b(${chatFilteredWords.join("|")})\\b`, "gi");
@@ -25,6 +24,7 @@ const ChatBody = ({
   return (
     <div className={classes["chat-body"]}>
       <div ref={messagesRef} className={classes["messages"]}>
+        {/* <span ref={firstMessageRef}></span> */}
         {messages &&
           messages.length > 0 &&
           messages.map((message, index) => (
