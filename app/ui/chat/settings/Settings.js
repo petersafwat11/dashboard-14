@@ -7,7 +7,7 @@ import io from "socket.io-client";
 const Settings = ({ data }) => {
   const socket = useRef(null);
 
-  const [chatMode, setChatMode] = useState(data[0]);
+  const [chatMode, setChatMode] = useState();
 
   const [error, setError] = useState(false);
   const toggleSlowMode = () => {
@@ -67,6 +67,19 @@ const Settings = ({ data }) => {
       }
     };
   }, [socket]);
+  useEffect(() => {
+    const fetchChatData = async () => {
+      try {
+        const chatMode = await axios.get(
+          `${process.env.BACKEND_SERVER}/chat/chatMode`
+        );
+        setChatMode(chatMode?.data?.data?.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchChatData();
+  }, []);
 
   return (
     <div className={classes["container"]}>
