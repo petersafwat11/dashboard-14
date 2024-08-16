@@ -48,35 +48,6 @@ const newPollsReducers = (prevState, action) => {
 const Poll = ({ data }) => {
   // const socket = io(`${process.env.BACKEND_SERVER}`);
   const socket = useRef(null);
-  useEffect(() => {
-    if (!socket.current || !socket?.current?.connected) {
-      socket.current = io(`${process.env.STATIC_SERVER}`, {
-        autoConnect: false,
-        reconnection: true,
-        reconnectionAttempts: Infinity,
-        reconnectionDelay: 1000,
-        reconnectionDelayMax: 5000,
-      });
-
-      socket.current.connect();
-    }
-
-    socket.current.on("connect", () => {
-      console.log("Connected to socket server");
-    });
-
-    socket.current.on("disconnect", () => {
-      console.log("Disconnected from socket server");
-    });
-
-    // Clean up the socket connection when the component unmounts
-    return () => {
-      if (socket.current) {
-        socket.current.disconnect();
-      }
-    };
-  }, [socket]);
-
   const [activePolls, setActivePolls] = useState(data || []);
   const [selectedPolls, setSelectedPolls] = useState([]);
   const [showAddPopup, setShowPopup] = useState(false);
@@ -147,6 +118,48 @@ const Poll = ({ data }) => {
       console.log(err);
     }
   };
+  useEffect(() => {
+    if (!socket.current || !socket?.current?.connected) {
+      socket.current = io(`${process.env.STATIC_SERVER}`, {
+        autoConnect: false,
+        reconnection: true,
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+      });
+
+      socket.current.connect();
+    }
+
+    socket.current.on("connect", () => {
+      console.log("Connected to socket server");
+    });
+
+    socket.current.on("disconnect", () => {
+      console.log("Disconnected from socket server");
+    });
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      if (socket.current) {
+        socket.current.disconnect();
+      }
+    };
+  }, [socket]);
+
+  useEffect(() => {
+    const fetchChatData = async () => {
+      try {
+        const chatPolls = await axios.get(
+          `${process.env.BACKEND_SERVER}/chat/chatPoll`
+        );
+        setActivePolls(chatPolls?.data?.data?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchChatData();
+  }, []);
 
   return (
     <div className={classes["container"]}>
