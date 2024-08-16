@@ -66,10 +66,6 @@ const ChatUsers = () => {
         const bannedChatMembers = await axios.get(
           `${process.env.BACKEND_SERVER}/chat/bannedChatMembers`
         );
-        console.log(
-          "bannedChatMembers?.data?.data",
-          bannedChatMembers?.data?.data
-        );
         setOriginalBannedChatMembers(bannedChatMembers?.data?.data);
         setBannedChatMembers(bannedChatMembers?.data?.data);
         setMembers(chatMembers?.data?.data);

@@ -104,9 +104,8 @@ const Poll = ({ data }) => {
         `${process.env.BACKEND_SERVER}/chat/chatPoll`,
         formattedPoll
       );
-      console.log("response.data.data.data", response.data.data.data);
       setActivePolls([response.data.data.data, ...activePolls]);
-      socket.current.emit(`chat poll`, [
+      socket.current.emit("chat poll", [
         response.data.data.data,
         ...activePolls,
       ]);
