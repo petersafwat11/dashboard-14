@@ -15,7 +15,10 @@ const ChatUsers = () => {
   );
   const [bannedChatMembers, setBannedChatMembers] = useState([]);
   const [orignalMembers, setOriginalMembers] = useState([]);
-  const [showUserAction, setShowUserAction] = useState(false);
+  const [showUserAction, setShowUserAction] = useState({
+    value: false,
+    type: "normal",
+  });
   const [userData, setUserData] = useState({});
   const [search, setSearch] = useState("");
   const socket = useRef(null);
@@ -109,9 +112,16 @@ const ChatUsers = () => {
       const response = await axios.post(
         `${process.env.BACKEND_SERVER}/chat/bannedChatMembers
 `,
-        userData
+        {
+          ...userData,
+          type: showUserAction.type === "normal" ? "ban" : "unban",
+        }
       );
-      setShowUserAction(false);
+      socket.current.emit("banned", { message: "IP banned", ...userData });
+      setShowUserAction({ value: false, type: "normal" });
+      setOriginalMembers((prev) => {
+        return prev.filter((member) => member.name !== userData.name);
+      });
       setOriginalBannedChatMembers(response?.data?.data);
       setBannedChatMembers(response?.data?.data);
       console.log("response", response);
@@ -126,7 +136,11 @@ const ChatUsers = () => {
 `,
         userData
       );
-      setShowUserAction(false);
+      socket.current.emit("banned", { message: "Ip Muted", ...userData });
+      setOriginalMembers((prev) => {
+        return prev.filter((member) => member.name !== userData.name);
+      });
+      setShowUserAction({ value: false, type: "" });
       console.log("response", response);
     } catch (err) {
       console.log("Error happened please try again later ", err);
@@ -134,10 +148,15 @@ const ChatUsers = () => {
   };
   return (
     <div className={classes["container"]}>
-      {showUserAction && (
+      {showUserAction.value && (
         <Popup>
           {" "}
-          <UserActions userData={userData} banIp={banIp} muteMember={muteMember} />
+          <UserActions
+            type={showUserAction.type}
+            userData={userData}
+            banIp={banIp}
+            muteMember={muteMember}
+          />
         </Popup>
       )}
       <h2 className={classes["title"]}>Users in Chat</h2>
@@ -203,7 +222,7 @@ const ChatUsers = () => {
               <div
                 onClick={() => {
                   setUserData(member);
-                  setShowUserAction(true);
+                  setShowUserAction({ value: true, type: "normal" });
                 }}
                 key={index}
                 className={classes["user"]}
@@ -222,7 +241,14 @@ const ChatUsers = () => {
               </div>
             ))
           : bannedChatMembers.map((member, index) => (
-              <div key={index} className={classes["user"]}>
+              <div
+                onClick={() => {
+                  setUserData(member);
+                  setShowUserAction({ value: true, type: "banned" });
+                }}
+                key={index}
+                className={classes["user"]}
+              >
                 <div className={classes["user-details"]}>
                   <Image
                     className={classes["avatar"]}
