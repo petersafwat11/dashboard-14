@@ -24,7 +24,7 @@ export function middleware(request) {
   ) {
     console.log("already signed in");
     const homeUrl = new URL("/", request.url);
-    return NextResponse.redirect(homeUrl);
+    return NextResponse.redirect("/sports");
   }
 
   // Handle redirection for users not logged in or without the proper role
