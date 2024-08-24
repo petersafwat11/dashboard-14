@@ -25,15 +25,18 @@ const LoginForm = () => {
       Cookies.set("token", response.data.token, {
         expires: 1,
       });
-      let next = "/sports";
-      const search = searchParams.get("next");
-      if (search) {
-        next = search;
-      }
+      console.log("User Cookie: ", Cookies.get("user"));
+      console.log("Token Cookie: ", Cookies.get("token"));
+
+      // let next = "/sports";
+      // const search = searchParams.get("next");
+      // if (search) {
+      //   next = search;
+      // }
       setEmail("");
       setPassword("");
       setTimeout(() => {
-        router.push(next);
+        router.push('/sports');
       }, 1000);
 
       console.log("redirect");
