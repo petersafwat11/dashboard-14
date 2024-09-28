@@ -14,7 +14,7 @@ const page = async ({ searchParams }) => {
       params: {
         page: page,
         limit: rows,
-        sort: { createdAt: -1 },
+        sort: { num: -1 },
         searchValue: search,
         flagged:
           type === "Flagged"

@@ -20,7 +20,7 @@ const page = async ({ searchParams }) => {
     }
   );
   const newsLetter = newsLetterData?.data?.data?.data;
-  console.log("newsLetter", newsLetter);
+  // console.log("newsLetter", newsLetter);
   const newsLetterPaginations = {
     results: newsLetterData?.data?.results,
     rowsPerPage: rows,
