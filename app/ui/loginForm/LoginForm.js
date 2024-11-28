@@ -30,16 +30,17 @@ const LoginForm = () => {
       // if (search) {
       //   next = search;
       // }
-      setEmail("");
-      setPassword("");
-      setTimeout(() => {
-        console.log("Checking cookies before redirect");
-        console.log("User Cookie:", Cookies.get("user"));
-        console.log("Token Cookie:", Cookies.get("token"));
-        router.replace("/sports");
-      }, 2000);
+      router.push("/sports");
 
-      console.log("redirect");
+      // setEmail("");
+      // setPassword("");
+      // setTimeout(() => {
+      //   console.log("Checking cookies before redirect");
+      //   console.log("User Cookie:", Cookies.get("user"));
+      //   console.log("Token Cookie:", Cookies.get("token"));
+      // }, 2000);
+
+      // console.log("redirect");
     } catch (error) {
       console.log("error", error);
     }
